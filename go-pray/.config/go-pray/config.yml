@@ -1,0 +1,77 @@
+# INFO: Calculation configuration.
+calculation:
+  # INFO: Prayer times calculation method (required).
+  # https://aladhan.com/calculation-methods.
+  # Possible values:
+  # - EGYPT (Egyptian General Authority of Survey)
+  # - MWL (Muslim World League)
+  # - KARACHI (University of Islamic Sciences, Karachi)
+  # - UAQ (Umm al-Qura University, Makkah)
+  # - DUBAI (The Gulf Region)
+  # - ISNA (Islamic Society of North America)
+  # - KUWAIT (Kuwait)
+  # - QATAR (Qatar)
+  # - SINGAPORE (Singapore)
+  # - UOIF (Union des Organisations Islamiques de France)
+  # - OTHER (Manually specify parameters)
+  method: EGYPT
+
+  # INFO: Custom calculation method parameters (required only if using OTHER method).
+  params:
+    # INFO: The angle of the sun used to calculate Fajr.
+    fajr_angle: 19.5
+    # INFO: The angle of the sun used to calculate Isha.
+    isha_angle: 17.5
+    # INFO: Minutes after Maghrib (if set, the time for Isha will be Maghrib plus isha_interval).
+    isha_interval: 60
+    # INFO: The juristic method used to calculate Asr.
+    # Possible values:
+    # - HANAFI (Hanafi)
+    # - SHAFI (Shafi/Hanbali/Maliki)
+    madhab: SHAFI
+    # INFO: Rules for placing bounds on Fajr and Isha for high latitude areas.
+    # Possible values:
+    # - MIDDLE (Fajr will never be earlier than the middle of the night, and Isha will never be later than the middle of the night).
+    # - SEVENTH (Fajr will never be earlier than the beginning of the last seventh of the night, and Isha will never be later than the end of the first seventh of the night).
+    # - TWILIGHT (Similar to SEVENTH, but instead of 1/7th, the fraction of the night used is fajr_angle/60 and isha_angle/60).
+    high_latitude_rule: MIDDLE
+
+  # INFO: Prayer times adjustment, number of minutes to add/subtract from calculated prayer time.
+  adjustment:
+    # fajr: -5
+    # dhuhr: 3
+
+# INFO: IANA time zone identifier (default: local timezone).
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List.
+timezone: Africa/Cairo
+
+# INFO: Adhan mp3 to play at prayer time (required for daemon mode).
+# Using environmental variables is supported.
+adhan: paplay $HOME/sounds/azan.mp3
+
+# INFO: Location coordinates for prayer times calculation (required).
+# https://www.mapcoordinates.net/en.
+location:
+  lat: 30.001780
+  long: 31.290419
+
+# INFO: Output langauge (default: en).
+# Possible values:
+# - en (English)
+# - ar (Arabic)
+language: en
+
+# INFO: Prayer notification configuration.
+notification:
+  # INFO: Notification icon name (default: clock-applet-symbolic).
+  icon: dialog-information
+  # INFO: Notificaton title template (default: "Prayer").
+  # Available data:
+  # - PrayerName: The current prayer name.
+  # - CalendarName: The current prayer name (changes Dhuhr to Jumuaa on Fridays).
+  title: Prayer Times
+  # INFO: Notificaton body template (default: "Time for {{ .CalendarName }} prayer 🕌").
+  # Available data:
+  # - PrayerName: The current prayer name.
+  # - CalendarName: The current prayer name (changes Dhuhr to Jumuaa on Fridays).
+  body: It is time for {{ .CalendarName }} prayer!

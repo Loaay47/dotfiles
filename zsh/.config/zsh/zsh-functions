@@ -1,0 +1,29 @@
+# function to source files if they exist
+function zsh_add_file() {
+  [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+# Pomodoro function with spd-say and timer
+declare -A pomo_options
+pomo_options["work"]="50"
+pomo_options["break"]="10"
+
+pomodoro () {
+  if [ -n "$1" ] && [ -n "${pomo_options["$1"]}" ]; then
+    val="$1"
+    paplay ~/sounds/${val}.wav &>/dev/null &
+    notify-send "Pomodoro" "Time to ${val} for ${pomo_options["$val"]} minutes"
+    echo "$val"
+    timer "${pomo_options["$val"]}m"
+  fi
+}
+
+cy() {
+  pomodoro 'work'
+  pomodoro 'break'
+}
+
+alias wo="pomodoro 'work'"
+alias br="pomodoro 'break'"
+
+

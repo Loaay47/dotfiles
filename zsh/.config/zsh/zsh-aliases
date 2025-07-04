@@ -1,0 +1,34 @@
+#/bin/sh
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+## xbps
+alias i='doas xbps-install -S'
+alias u='doas xbps-install -S; doas xbps-install -u xbps; doas xbps-install -u'
+alias q='doas xbps-query -Rs'
+alias r='doas xbps-remove -R'
+
+alias vi='nvim'
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
+alias obsidian='dbus-run-session flatpak run md.obsidian.Obsidian & disown'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias cclip="xclip -selection clipboard"
+
+alias dop='cd "/media/fun/dfLoaay data"'
+alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc --video-bit-rate=4M'
+set -o vi
+
+c() {
+  local dir
+  dir=$(find . \
+    \( -path './node_modules' -o -path './.git' \) -prune -o \
+    -type d -print 2>/dev/null | fzf)
+  [ -n "$dir" ] && cd "$dir"
+}

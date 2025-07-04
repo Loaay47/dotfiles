@@ -1,0 +1,104 @@
+# Programs:
+
+super + Return
+        st
+
+super + w
+        $HOME/dotfiles/scripts/whatsapp.sh
+
+super + b
+        $HOME/dotfiles/scripts/brave.sh
+
+super + d
+        dmenu_run
+
+super + r
+        rofi -show drun
+
+super + i
+        rofi -show emoji -modi emoji
+
+super + c
+        rofi -show calc -modi calc -no-sort
+
+super + e
+        st -e ranger
+
+super + v
+        st -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
+
+super + shift + R
+        xcolor | xclip -selection clipboard
+
+# ==========================================================
+# Controlling:
+
+super + shift + l
+        slock & sleep 1 && doas zzz
+
+super + {equal, minus, BackSpace}
+        $HOME/dotfiles/scripts/volume.sh {up, down, toggle}
+
+super + backslash
+        $HOME/dotfiles/scripts/brightness.sh up
+
+super + bracketright
+        $HOME/dotfiles/scripts/brightness.sh down
+
+super + m
+        $HOME/dotfiles/scripts/mount.sh
+
+super + shift + BackSpace
+        $HOME/dotfiles/scripts/exit.sh
+
+super + shift + S
+        $HOME/dotfiles/scripts/screenshot.sh -s
+
+super + shift + F
+        maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+
+ ============================================
+# Tools:
+
+super + shift + W
+        st -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
+
+super + p
+        st -e sh -c 'cd /media/fun/dfLoaay\ data && ranger .'
+
+super + f
+        st -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+
+ ============================================
+
+# mouse movements :
+# Move mouse left
+ctrl + alt + h
+    xdotool mousemove_relative -- -26 0
+
+# Move mouse right
+ctrl + alt + l
+    xdotool mousemove_relative -- 26 0
+
+# Move mouse up
+ctrl + alt + k
+    xdotool mousemove_relative -- 0 -26
+
+# Move mouse down
+ctrl + alt + j
+    xdotool mousemove_relative -- 0 26
+
+# Left click
+ctrl + alt + space
+    xdotool click 1
+
+ctrl + alt + p
+    xdotool click 3
+
+# Scroll up
+alt + u
+    xdotool click 4
+
+# Scroll down
+alt + d
+    xdotool click 5
