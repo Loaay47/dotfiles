@@ -32,7 +32,7 @@ export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/expor
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
-~/dotfile/scripts/restore_brightness.sh &
+~/dotfiles/scripts/restore_brightness.sh &
 
 # Background services
 sxhkd &
@@ -43,6 +43,6 @@ dunst &
 gromit-mpx &
 syncthing serve --no-browser --logfile=default &
 # picom -b --experimental-backends &
-go-pray daemon &
+pgrep -x go-pray || go-pray daemon &
 exec dwm
 

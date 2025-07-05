@@ -12,9 +12,6 @@ unsetopt beep
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/loaay/.config/zsh/.zshrc'
 
-autoload -Uz compinit
-compinit -C
-zstyle ':completion:*' menu select
 # End of lines added by compinstall
 
 # Useful Functions
@@ -32,7 +29,8 @@ source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 
 # ranger-cd
 function ranger-cd {
@@ -48,6 +46,11 @@ function ranger-cd {
 #ranger-cd will run by alt+r
 bindkey -s "^\er" "ranger-cd\n"
 bindkey '^n' autosuggest-accept
+
+# Auto  completion
+autoload -Uz compinit
+compinit -C
+zstyle ':completion:*' menu select
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

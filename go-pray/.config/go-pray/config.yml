@@ -47,7 +47,7 @@ timezone: Africa/Cairo
 
 # INFO: Adhan mp3 to play at prayer time (required for daemon mode).
 # Using environmental variables is supported.
-adhan: paplay $HOME/sounds/azan.mp3
+adhan: $HOME/sounds/azan.mp3
 
 # INFO: Location coordinates for prayer times calculation (required).
 # https://www.mapcoordinates.net/en.

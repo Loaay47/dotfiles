@@ -34,7 +34,7 @@ super + shift + R
 # Controlling:
 
 super + shift + l
-        slock & sleep 1 && doas zzz
+        slock && doas systemctl suspend
 
 super + {equal, minus, BackSpace}
         $HOME/dotfiles/scripts/volume.sh {up, down, toggle}

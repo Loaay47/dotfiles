@@ -1,4 +1,3 @@
 #!/bin/sh
 
-printf "🕌 %s\n" "$(/home/loaay/.local/bin/go-pray next);"
-
+printf "🕌 %s\n" "$(go-pray next);"
