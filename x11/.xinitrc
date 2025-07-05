@@ -6,7 +6,7 @@ fi
 setxkbmap -layout us,ara -variant ,digits -option grp:alt_caps_toggle,caps:swapescape
 
 #Changing Background
-feh --bg-fill ~/Downloads/solid-color-image.png
+#feh --bg-fill ~/Downloads/solid-color-image.png
 
 # Mounting sdb5 / sdb6 automatically
 if ! findmnt -S /dev/sdb5 > /dev/null 2>&1; then
@@ -22,8 +22,8 @@ export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/expor
 
 # Background services
 sxhkd & 
-dwmblocks &
-blueman-applet &
+#dwmblocks &
+#blueman-applet &
 dunst &
 # picom -b --experimental-backends &
 exec dwm

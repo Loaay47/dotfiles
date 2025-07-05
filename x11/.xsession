@@ -46,6 +46,3 @@ syncthing serve --no-browser --logfile=default &
 go-pray daemon &
 exec dwm
 
-
-
-

@@ -10,10 +10,10 @@ alias egrep='egrep --color=auto'
 
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ## xbps
-alias i='doas xbps-install -S'
-alias u='doas xbps-install -S; doas xbps-install -u xbps; doas xbps-install -u'
-alias q='doas xbps-query -Rs'
-alias r='doas xbps-remove -R'
+alias i='doas pacman -S'
+alias u='doas pacman -Syu'
+alias q='doas pacman -Ss'
+alias r='doas pacman -R'
 
 alias vi='nvim'
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
