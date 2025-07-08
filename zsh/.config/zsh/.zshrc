@@ -8,6 +8,12 @@ setopt autocd extendedglob nomatch notify
 setopt NO_NOMATCH
 setopt NO_NOTIFY
 unsetopt beep
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/loaay/.config/zsh/.zshrc'

@@ -10,7 +10,7 @@ super + b
         $HOME/dotfiles/scripts/brave.sh
 
 super + d
-        dmenu_run
+        mpv --player-operation-mode=pseudo-gui
 
 super + r
         rofi -show drun
@@ -34,7 +34,7 @@ super + shift + R
 # Controlling:
 
 super + shift + l
-        slock && doas systemctl suspend
+        slock & doas systemctl suspend
 
 super + {equal, minus, BackSpace}
         $HOME/dotfiles/scripts/volume.sh {up, down, toggle}
