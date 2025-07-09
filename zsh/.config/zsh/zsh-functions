@@ -2,28 +2,36 @@
 function zsh_add_file() {
   [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
+# Function for pomodoro
+typeset -A pomo_options=(
+  [work]=50
+  [break]=10
+)
 
-# Pomodoro function with spd-say and timer
-declare -A pomo_options
-pomo_options["work"]="50"
-pomo_options["break"]="10"
-
+typeset -A pomo_icons=(
+  [work]="🧠"
+  [break]="💤"
+)
 pomodoro () {
-  if [ -n "$1" ] && [ -n "${pomo_options["$1"]}" ]; then
+  local val minutes end_time icon display_text
+
+  if [[ -n "$1" && -n "${pomo_options[$1]}" ]]; then
     val="$1"
+    minutes="${pomo_options[$val]}"
+    end_time=$(date -d "+${minutes} minutes" +"%H:%M")
+
+    icon="${pomo_icons[$val]}"
+    display_text="${val:0:1:u}${val:1} till $end_time"
+
     paplay ~/sounds/${val}.wav &>/dev/null &
-    notify-send -i "$icon_path" "🍅  Pomodoro" "⏳ Time to $val for ${pomo_options["$val"]} minutes"
-    echo "$val"
-    timer "${pomo_options["$val"]}m"
+    notify-send "${icon}  $display_text"
+    timer "${minutes}m"
   fi
 }
-
 cy() {
   pomodoro 'work'
   pomodoro 'break'
 }
-
-alias wo="pomodoro 'work'"
-alias br="pomodoro 'break'"
-
+alias wo="pomodoro work"
+alias br="pomodoro break"
 

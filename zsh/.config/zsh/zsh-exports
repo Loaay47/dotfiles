@@ -5,8 +5,11 @@ SAVEHIST=5000
 # Updating PATH
 export EDITOR=nvim
 export VISUAL=nvim
-export BROWSER=brave-browser-stable
+export BROWSER=brave
 export TERMINAL=st
 export PATH=$PATH:/var/lib/flatpak/exports/bin
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$HOME/go/bin:$PATH"
+export GTK_THEME=Materia-Dark
+export FILE_MANAGER=pcmanfm
+

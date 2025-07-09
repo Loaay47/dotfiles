@@ -15,6 +15,12 @@ super + d
 super + r
         rofi -show drun
 
+super + o
+        $HOME/dotfiles/scripts/search.sh
+
+super + y
+        $HOME/dotfiles/scripts/yt_search.sh
+
 super + i
         rofi -show emoji -modi emoji
 

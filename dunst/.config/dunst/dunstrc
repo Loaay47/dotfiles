@@ -7,7 +7,7 @@
     corner_radius = 12
 
     # Transparent white using alpha (#RRGGBBAA)
-    background = "#ffffff66"
+    background = "#ffffff99"
     foreground = "#000000"
     transparency = 0
     font = Noto Sans 10
@@ -30,11 +30,11 @@
     force_xwayland = false
 
 [urgency_low]
-    background = "#ffffff66"
+    background = "#ffffff99"
     foreground = "#000000"
 
 [urgency_normal]
-    background = "#ffffff66"
+    background = "#ffffff99"
     foreground = "#000000"
 
 [urgency_critical]

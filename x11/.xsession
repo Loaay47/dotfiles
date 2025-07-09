@@ -40,8 +40,8 @@ keynav &
 dwmblocks &
 blueman-applet &
 dunst &
-gromit-mpx &
+# gromit-mpx &
 syncthing serve --no-browser --logfile=default &
-# picom -b &
+picom -b &
 # go-pray daemon &
 exec dwm
