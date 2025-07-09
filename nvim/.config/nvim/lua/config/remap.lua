@@ -4,7 +4,7 @@ vim.g.maplocalleader = "."
 --Neotree
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<C-a>", "ggVG")
+vim.keymap.set("n", "<M-a>", "ggVG")
 vim.keymap.set("n", "<leader>gs", function()
   vim.cmd("Git")
 end)

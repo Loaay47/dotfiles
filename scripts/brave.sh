@@ -1,6 +1,6 @@
 #!/bin/bash
 
-notify-send "brave loading..."
+notify-send "🌐  Brave Loading ..."
 brave
 
 

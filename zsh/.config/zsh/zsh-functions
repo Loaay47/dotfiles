@@ -12,7 +12,7 @@ pomodoro () {
   if [ -n "$1" ] && [ -n "${pomo_options["$1"]}" ]; then
     val="$1"
     paplay ~/sounds/${val}.wav &>/dev/null &
-    notify-send "Pomodoro" "Time to ${val} for ${pomo_options["$val"]} minutes"
+    notify-send -i "$icon_path" "🍅  Pomodoro" "⏳ Time to $val for ${pomo_options["$val"]} minutes"
     echo "$val"
     timer "${pomo_options["$val"]}m"
   fi

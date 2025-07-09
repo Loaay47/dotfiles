@@ -9,4 +9,4 @@ export BROWSER=brave-browser-stable
 export TERMINAL=st
 export PATH=$PATH:/var/lib/flatpak/exports/bin
 export PATH="$PATH:$HOME/go/bin"
-
+export PATH="$HOME/go/bin:$PATH"

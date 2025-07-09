@@ -25,7 +25,7 @@ export PATH="$HOME/.local/bin:$PATH"
 setxkbmap -layout us,ara -variant ,digits -option grp:alt_caps_toggle,caps:swapescape
 
 #Changing Background
-feh --bg-fill ~/Downloads/solid-color-image.png
+feh --bg-fill ~/Downloads/6066910.jpg
 
 export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin"
 
@@ -42,7 +42,6 @@ blueman-applet &
 dunst &
 gromit-mpx &
 syncthing serve --no-browser --logfile=default &
-# picom -b --experimental-backends &
-pgrep -x go-pray || go-pray daemon &
+# picom -b &
+# go-pray daemon &
 exec dwm
-
