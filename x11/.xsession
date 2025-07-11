@@ -14,6 +14,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
+export CM_LAUNCHER=rofi
 
 
 # XDG base directories
@@ -23,6 +24,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export PATH="$HOME/.local/bin:$PATH"
 
 setxkbmap -layout us,ara -variant ,digits -option grp:alt_caps_toggle,caps:swapescape
+
+# Increase volume of Bluetooth mic to 150%
+btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
+[ -n "$btmic" ] && pactl set-source-volume "$btmic" 135%
+
 
 #Changing Background
 feh --bg-fill ~/Downloads/6066910.jpg
@@ -40,8 +46,9 @@ keynav &
 dwmblocks &
 blueman-applet &
 dunst &
-gromit-mpx &
+# gromit-mpx &
 syncthing serve --no-browser --logfile=default &
 picom -b &
+clipmenud &
 # go-pray daemon &
 exec dwm

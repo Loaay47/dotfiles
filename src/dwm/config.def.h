@@ -31,12 +31,8 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
-    {"firefox", NULL, NULL, 1, 0, 0, -1},
     {"google-chrome", NULL, NULL, 1 << 5, 0, 0, -1},
     {"st", "scratchpad", NULL, 0, 1, 1, -1},
-    { "Thunar",         NULL,          "File Operation Progress", 0,     1,         1,         -1 },
-    { NULL,             NULL,          "Open Files",           0,         1,         1,         -1 },
-    { NULL,             NULL,          "Select File",          0,         1,         1,         -1 },
 };
 
 

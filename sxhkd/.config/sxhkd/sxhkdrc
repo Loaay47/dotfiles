@@ -30,7 +30,7 @@ super + c
 super + e
         st -e ranger
 
-super + v
+super + shift + v
         st -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
 
 super + shift + R
@@ -70,10 +70,16 @@ super + shift + W
         st -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
 super + p
-        st -e sh -c 'cd /media/fun/dfLoaay\ data && ranger .'
+        st -e sh -c 'cd /media/fun/_loaay_data && ranger .'
 
 super + f
         st -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+
+super + shift + o
+        $HOME/dotfiles/scripts/screencast.sh
+
+super + v
+        clipmenu
 
  ============================================
 

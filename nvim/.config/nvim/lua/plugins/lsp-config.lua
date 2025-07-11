@@ -87,7 +87,7 @@ return {
         end,
       })
       vim.diagnostic.config({
-        virtual_text = false, -- Show inline text 
+        virtual_text = false, -- Show inline text
         signs = true,         -- Show signs in the gutter
         update_in_insert = false,
         underline = true,

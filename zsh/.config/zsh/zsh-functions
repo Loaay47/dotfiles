@@ -1,8 +1,8 @@
-# function to source files if they exist
+# Function to source files if they exist
 function zsh_add_file() {
   [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
-# Function for pomodoro
+
 typeset -A pomo_options=(
   [work]=50
   [break]=10
@@ -12,26 +12,61 @@ typeset -A pomo_icons=(
   [work]="🧠"
   [break]="💤"
 )
+
 pomodoro () {
-  local val minutes end_time icon display_text
+  local val minutes start_time end_time icon display_text
+  local cache_file="$HOME/.cache/pomo_status"
+  local pid_file="$HOME/.cache/pomo_pid"
+
+  echo "" > "$cache_file"
+  pkill -RTMIN+10 dwmblocks
 
   if [[ -n "$1" && -n "${pomo_options[$1]}" ]]; then
     val="$1"
     minutes="${pomo_options[$val]}"
+    start_time=$(date +"%H:%M")
     end_time=$(date -d "+${minutes} minutes" +"%H:%M")
-
     icon="${pomo_icons[$val]}"
-    display_text="${val:0:1:u}${val:1} till $end_time"
+    display_text="${val:0:1:u}${val:1}"
 
     paplay ~/sounds/${val}.wav &>/dev/null &
-    notify-send "${icon}  $display_text"
+    notify-send "${icon}  $display_text till $end_time"
+
+    echo -e "\n${icon}  \033[1m${display_text}\033[0m Session"
+    echo -e "⏱  Starts at: \033[32m$start_time\033[0m"
+    echo -e "🏁 Ends at:   \033[31m$end_time\033[0m\n"
+
+    (
+      trap 'echo "" > "$cache_file"; rm -f "$pid_file"; pkill -RTMIN+10 dwmblocks; exit' INT TERM
+
+      echo $$ > "$pid_file"
+
+      for ((i = minutes; i > 0; i--)); do
+        local done=$((minutes - i))
+        local percent=$((done * 10 / minutes))
+        local bar=$(printf '%s%s' "$(printf '#%.0s' $(seq 1 $percent))" "$(printf '.%.0s' $(seq 1 $((10 - percent))))")
+
+        echo "$icon [$bar] ${i}m" > "$cache_file"
+        pkill -RTMIN+10 dwmblocks
+        sleep 60
+      done
+
+      echo "" > "$cache_file"
+      rm -f "$pid_file"
+      pkill -RTMIN+10 dwmblocks
+    ) &
+
     timer "${minutes}m"
+  else
+    echo "Usage: pomodoro [work|break]"
   fi
 }
+
 cy() {
-  pomodoro 'work'
-  pomodoro 'break'
+  pomodoro work
+  pomodoro break
 }
+
 alias wo="pomodoro work"
 alias br="pomodoro break"
 
