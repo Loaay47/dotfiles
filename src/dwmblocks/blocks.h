@@ -7,7 +7,7 @@ static const Block blocks[] = {
     // {"", "/home/loaay/scripts/cpu.sh",  5,                 0},
     { "",    "/home/loaay/dotfiles/scripts/screencast_dwm.sh",   0,    10 },
     { "", "/home/loaay/dotfiles/scripts/pomodoro.sh", 10, 10 },
-    {"Vol: ", "/home/loaay/dotfiles/scripts/volume_dwm.sh", 0, 30},
+    {"🔊 ", "/home/loaay/dotfiles/scripts/volume_dwm.sh", 0, 30},
     {"", "date '+%a %d %b - %H:%M'", 5, 0},
     {"", "/home/loaay/dotfiles/scripts/battery.sh", 25, 10},
 };
