@@ -21,13 +21,14 @@ case "$arg" in
     ;;
   *)
     echo "Usage: $0 {up|down|toggle}"
-    exit 1
     ;;
 esac
 
 # Get volume and mute state
-volume=$(amixer get Master | awk -F'[][]' '/Left:/ { print $2 }' | tr -d '%')
-muted=$(amixer get Master | grep '\[off\]')
+amixer_output=$(amixer get Master)
+muted=$(echo "$amixer_output" | grep '\[off\]')
+volume=$(echo "$amixer_output" | awk -F'[][]' '/Left:/ { print $2 }' | tr -d '%' | head -n1)
+[ -z "$volume" ] && volume=0
 
 # Decide icon and volume display
 if [ -n "$muted" ]; then

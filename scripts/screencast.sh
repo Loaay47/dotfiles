@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RECORDING_FILE="$HOME/screencast/recording_$(date +%F_%T).mp4"
+RECORDING_FILE="$HOME/screencast/recording_$(date +%F_%T).mkv"
 PIDFILE="/tmp/screencast.pid"
 
 if [ -f "$PIDFILE" ]; then

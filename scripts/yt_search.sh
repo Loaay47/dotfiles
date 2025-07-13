@@ -5,7 +5,7 @@ query="$(rofi -dmenu -p 'YouTube Search:')"
 
 url="https://www.youtube.com/results?search_query=$(printf "%s" "$query" | jq -s -R -r @uri)"
 
-brave "$url" &
+qutebrowser "$url" &
 sleep 0.5
 xdotool key super+1
 

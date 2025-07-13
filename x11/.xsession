@@ -31,7 +31,7 @@ btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
 
 
 #Changing Background
-feh --bg-fill ~/Downloads/6066910.jpg
+feh --bg-fill ~/Pictures/hyprland_wallpapers/Dark_Nature.png
 
 export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin"
 

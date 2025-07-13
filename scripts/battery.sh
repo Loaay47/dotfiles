@@ -30,8 +30,8 @@ if [ "$charging_status" = "Charging" ]; then
     echo "  $battery_level%"  # charging
 elif [ "$battery_level" -le 30 ]; then
     echo " $battery_level%"    # low battery
-    aplay "$HOME/sounds/output.wav"
-    notify-send "Battery Alert" "Battery is below 30%! Please plug in."
+    paplay "$HOME/sounds/output.wav"
+    notify-send -u critical -i battery-caution "Battery Low" "Plug in your charger"
 elif [ "$battery_level" -le 50 ]; then
     echo " $battery_level%"
 elif [ "$battery_level" -le 70 ]; then

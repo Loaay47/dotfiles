@@ -12,5 +12,5 @@ name=$(echo "$cmd" | awk '{print $NF}' | xargs basename)
 
 # Kill and notify
 if [ -n "$pid" ]; then
-    kill "$pid" && notify-send "Killed $name (PID $pid)"
+    kill "$pid" && notify-send -u normal -i dialog-information "Process Killed" "$name (PID $pid) was terminated."
 fi

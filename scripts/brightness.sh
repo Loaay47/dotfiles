@@ -55,7 +55,7 @@ bar=$(generate_bar "$percent")
 # Read last notification ID
 [ -f "$ID_FILE" ] && ID=$(cat "$ID_FILE") || ID=0
 
-# Send minimal, glazy white-styled notification (no extra styling added)
+# Send minimal
 newid=$(dunstify -r "$ID" -t 1000 "$ICON Brightness" "<b><tt>$bar</tt>  $percent%</b>" -p)
 
 echo "$newid" > "$ID_FILE"

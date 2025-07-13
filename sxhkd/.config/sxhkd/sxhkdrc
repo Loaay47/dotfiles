@@ -4,7 +4,7 @@ super + Return
         st
 
 super + w
-        $HOME/dotfiles/scripts/whatsapp.sh
+        $HOME/dotfiles/scripts/qute.sh
 
 super + b
         $HOME/dotfiles/scripts/brave.sh
