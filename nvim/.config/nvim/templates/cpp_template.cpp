@@ -9,7 +9,9 @@
 //  |______\___/ \__,_|\__,_|\__, |
 //                            __/ |
 //                           |___/
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 #define fastio()                                                               \
@@ -19,7 +21,6 @@ using namespace std;
 #define el "\n"
 
 typedef long long ll;
-typedef long double ld;
 
 void solve() {
 

@@ -1,10 +1,16 @@
 #!/bin/bash
 
-win_id=$(xdotool getactivewindow)
+PICOM_NORMAL="$HOME/.config/picom/picom.conf"
+PICOM_FULL="$HOME/.config/picom/picom_off.conf"
+PID=$(pgrep -x picom)
 
-if xprop -id "$win_id" | grep -q "_PICOM_DISABLE_OPACITY"; then
-    xprop -id "$win_id" -remove _PICOM_DISABLE_OPACITY
+if [ -f /tmp/picom_full ]; then
+    rm /tmp/picom_full
+    [ "$PID" ] && kill "$PID"
+    picom --config "$PICOM_NORMAL" -b
 else
-    xprop -id "$win_id" -f _PICOM_DISABLE_OPACITY 32c -set _PICOM_DISABLE_OPACITY 1
+    touch /tmp/picom_full
+    [ "$PID" ] && kill "$PID"
+    picom --config "$PICOM_FULL" -b
 fi
 

@@ -1,20 +1,27 @@
 /* cosmetic and focus tweaks for yt */
 /* credit to various userstyles makers for some pieces of this */
+/* shorts full removal everywhere */
 
-/* grid view */
-#items.ytd-grid-renderer>ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
-  display: none;
+/* Shorts in grid view */
+ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
+ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
+ytd-reel-shelf-renderer,
+ytd-rich-section-renderer:has(span.title:contains("Shorts")),
+ytd-rich-grid-media:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
+    display: none !important;
 }
-
-/* list view */
-ytd-item-section-renderer:not(:has(ytd-grid-renderer)):has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
-  display: none; 
+tp-yt-paper-tab:has(span:contains("Shorts")) {
+    display: none !important;
+}
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-guide-entry-renderer a[href*="shorts"] {
+    display: none !important;
 }
 
 /* hide recs */
-#secondary {
+/* #secondary {
   display: none !important;
-}
+} */
 
 /* make video fill the remaining space */
 #primary {
@@ -24,23 +31,24 @@ ytd-item-section-renderer:not(:has(ytd-grid-renderer)):has(ytd-thumbnail-overlay
 }
 
 /* hide yt sidebar */
-ytd-mini-guide-renderer, 
+/* ytd-mini-guide-renderer,
 ytd-guide-renderer {
   display: none !important;
-}
+} */
 
 /* hide yt top bar */
-.ytd-masthead {
+/* .ytd-masthead {
   margin: 0 !important;
   display: none !important;
-}
+} */
+
 
 /* remove extra padding and ensure content is full-width on channel page*/
-.ytd-app {
+/* .ytd-app {
   margin-top: 0 !important;
   padding-top: 0 !important;
   margin-left: 0 !important;
-}
+} */
 
 html:not(.ytd-watch-flexy) ytd-watch-flexy[flexy] #player {
   width: 100% !important;
@@ -49,7 +57,7 @@ html:not(.ytd-watch-flexy) ytd-watch-flexy[flexy] #player {
 }
 
 /* remove that annoying thing yt adds in dark mode */
-.ytp-gradient-bottom {
+.ytp-gradient-top, .ytp-gradient-bottom {
   display: none !important;
 }
 

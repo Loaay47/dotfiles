@@ -63,6 +63,9 @@ super + shift + S
 super + shift + F
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
+super + shift + H
+        $HOME/dotfiles/scripts/opacity.sh
+
  ============================================
 # Tools:
 
@@ -70,6 +73,9 @@ super + shift + W
         st -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
 super + p
+        $HOME/dotfiles/scripts/mpv_clip.sh
+
+super + semicolon
         st -e sh -c 'cd /media/fun/_loaay_data && ranger .'
 
 super + f

@@ -186,7 +186,10 @@ c.downloads.location.directory = '~/Downloads'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'always'
+c.tabs.show = 'never'
+c.tabs.position = 'left'
+c.tabs.width = '10%'
+
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
@@ -211,7 +214,7 @@ c.url.start_pages = 'https://start.duckduckgo.com'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 're': 'https://www.reddit.com/r/{}', 'ub': 'https://www.urbandictionary.com/define.php?term={}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'yt': 'https://www.youtube.com/results?search_query={}', 'cp': 'https://chat.openai.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'ar': 'https://wiki.archlinux.org/?search={}', 'g': 'https://www.google.com/search?q={}',  're': 'https://www.reddit.com/r/{}', 'ub': 'https://www.urbandictionary.com/define.php?term={}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'yt': 'https://www.youtube.com/results?search_query={}', 'cp': 'https://chat.openai.com/?q={}'}
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -324,7 +327,7 @@ c.colors.statusbar.url.warn.fg = 'yellow'
 
 # Background color of the tab bar.
 # Type: QssColor
-c.colors.tabs.bar.bg = '#1c1f34'
+c.colors.tabs.bar.bg = '#121212'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
@@ -357,6 +360,10 @@ c.colors.tabs.pinned.selected.odd.bg = '#282c34'
 # Background color of pinned selected even tabs.
 # Type: QtColor
 c.colors.tabs.pinned.selected.even.bg = '#282c34'
+
+# Private mode statusbar
+c.colors.statusbar.private.bg = '#4b006e'
+c.colors.statusbar.private.fg = '#ffffff'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
@@ -394,8 +401,13 @@ config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('Z', 'hint links spawn st -e yt-dlp -f 609+140 -P ~/Downloads {hint-url}')
 config.bind('t', 'cmd-set-text -s :open -t')
 config.bind('xb', 'config-cycle statusbar.show always never')
-config.bind('xt', 'config-cycle tabs.show always never')
+config.bind('pv', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('C', 'spawn --detach ~/dotfiles/scripts/companion.sh {url}')
+config.bind('ct', 'config-cycle tabs.position left top')
+config.bind('gJ', 'tab-move +')
+config.bind('gK', 'tab-move -')
+config.bind('gm', 'tab-move')
 
 # Bindings for cycling through CSS stylesheets from Solarized Everything CSS:
 # https://github.com/alphapapa/solarized-everything-css
@@ -406,14 +418,65 @@ config.bind(',sd', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
 
 
-# some BS
+# Ad block
 config.set('content.blocking.enabled', True)
-config.set('content.blocking.method', 'adblock')
+c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
 c.content.blocking.adblock.lists = [
-    'https://easylist.to/easylist/easylist.txt',
-    'https://easylist.to/easylist/easyprivacy.txt',
-    'https://secure.fanboy.co.nz/fanboy-annoyance.txt',
-]
+        "https://github.com/ewpratten/youtube_ad_blocklist/blob/master/blocklist.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+
+# clipboard
 c.content.javascript.clipboard = 'access'
+
 # Enable fullscreen requests (default should be true)
+c.content.user_stylesheets = ["~/.config/qutebrowser/styles/youtube-tweaks.css"]
+c.editor.command = ["st", "-e", "nvim", "{file}", "-c", "normal {line}G{column0}l"]
+
+
+# smooth scrolling
+
+import subprocess
+
+def get_height():
+    xrandr_output = subprocess.check_output(['xrandr']).decode()
+    for line in xrandr_output.splitlines():
+        if '*' in line:
+            resolution = line.strip().split()[0]  # example '1920x1080'
+            height = resolution.split('x')[1]
+            return int(height)
+    return 1080  # fallback if xrandr fails
+
+def get_scroll_vars(one_scroll_px=40, screen_h=get_height(), borders_px=36, margin=10):
+    """Get number of scroll steps and rest pixels for half page scroll"""
+    to_scroll = (screen_h - borders_px) // 2 - margin
+    return divmod(to_scroll, one_scroll_px)
+
+scroll_steps, rest_px = get_scroll_vars()
+
+config.unbind('u')
+config.unbind('d')
+config.bind('sd', 'tab-close')
+config.bind('U', 'undo')
+
+config.bind('j', 'cmd-run-with-count 2 scroll down')
+config.bind('k', 'cmd-run-with-count 2 scroll up')
+
+config.bind('u', f'scroll-px 0 {-rest_px} ;; cmd-run-with-count {scroll_steps} scroll up')
+config.bind('d', f'scroll-px 0 {rest_px} ;; cmd-run-with-count {scroll_steps} scroll down')
 
