@@ -10,7 +10,7 @@ static const Block blocks[] = {
     {"🔊 ", "/home/loaay/dotfiles/scripts/volume_dwm.sh", 0, 30},
     // {"", "/home/loaay/dotfiles/scripts/layout.sh", 0, 5},
     {"", "date '+%a %d %b - %H:%M'", 5, 0},
-    {"", "/home/loaay/dotfiles/scripts/battery.sh", 25, 10},
+    {"", "/home/loaay/dotfiles/scripts/battery.sh", 15, 10},
 };
 
 // sets delimiter between status commands. NULL character ('\0') means no

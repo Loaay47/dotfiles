@@ -7,19 +7,21 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias yay='paru'
 
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ## xbps
-alias i='doas pacman -S'
+alias i='doas pacman -S --needed'
 alias u='doas pacman -Syu'
 alias q='doas pacman -Ss'
 alias r='doas pacman -R'
 
 alias vi='nvim'
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cclip="xclip -selection clipboard"
+alias mpvs="mpv --no-video"
+alias net="vnstat -i wlp1s0 --oneline"
 
 alias dop='cd "/media/fun/_loaay_data"'
 alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc --video-bit-rate=1M'
+alias rain='mpv --no-video --volume=26 --cache=yes --cache-secs=30 --ytdl-format=bestaudio "https://youtube.com/watch?v=nDq6TstdEi8"'
 

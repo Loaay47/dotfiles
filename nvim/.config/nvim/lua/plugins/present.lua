@@ -1,4 +1,3 @@
 return {
     'tjdevries/present.nvim'
-
 }

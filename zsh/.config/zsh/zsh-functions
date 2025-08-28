@@ -2,6 +2,48 @@
 function zsh_add_file() {
   [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
+jaber() {
+    start=$(printf "%03d" "$1")
+    end="$2"
+
+    if [ -z "$end" ]; then
+        mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server11.mp3quran.net/a_jbr/${start}.mp3"
+    else
+        for ((i=$1; i<=$end; i++)); do
+            surah=$(printf "%03d" "$i")
+            mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server11.mp3quran.net/a_jbr/${surah}.mp3"
+        done
+    fi
+}
+
+husr() {
+    start=$(printf "%03d" "$1")
+    end="$2"
+
+    if [ -z "$end" ]; then
+        mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server13.mp3quran.net/husr/${start}.mp3"
+    else
+        for ((i=$1; i<=$end; i++)); do
+            surah=$(printf "%03d" "$i")
+            mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server13.mp3quran.net/husr/${surah}.mp3"
+        done
+    fi
+}
+
+yasser() {
+    start=$(printf "%03d" "$1")
+    end="$2"
+
+    if [ -z "$end" ]; then
+         mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server11.mp3quran.net/yasser/${start}.mp3"
+    else
+        for ((i=$1; i<=$end; i++)); do
+            surah=$(printf "%03d" "$i")
+            mpv --no-video --volume=40 --cache=yes --cache-secs=30 "https://server11.mp3quran.net/yasser/${surah}.mp3"
+        done
+    fi
+}
+
 c() {
   local dir
   dir=$(find . \

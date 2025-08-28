@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "."
 
---Neotree
+--Ex
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<M-a>", "ggVG")
@@ -19,9 +19,32 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Markdown shortcuts
+vim.keymap.set("n", "<leader>1", "yyP<Esc>I# ")
+vim.keymap.set("n", "<leader>2", "yyP<Esc>I## ")
+vim.keymap.set("n", "<leader>3", "yyP<Esc>I### ")
+vim.keymap.set("n", "<leader>4", "yyP<Esc>I#### ")
+vim.keymap.set("n", "<leader>to", function()
+  local line_nr = vim.api.nvim_win_get_cursor(0)[1]
+  local line = vim.fn.getline(line_nr)
+  local new_line = nil
+
+  if line:match("%- %[ %]") then
+    new_line = line:gsub("%- %[ %]", "- [x]")
+  elseif line:match("%- %[x%]") then
+    new_line = line:gsub("%- %[x%]", "- [ ]")
+  end
+
+  if new_line then
+    vim.fn.setline(line_nr, { new_line })
+  end
+end)
+
 -- Add newline
 vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader><CR>", "O<Esc>", { noremap = true, silent = true })
+vim.keymap.set('n', 'j', 'gj', { noremap = true })
+vim.keymap.set('n', 'k', 'gk', { noremap = true })
 
 --split window
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
@@ -68,6 +91,10 @@ vim.keymap.set("n", "<localleader>at", "<cmd>CompetiTest add_testcase<CR>", { de
 vim.keymap.set("n", "<localleader>et", "<cmd>CompetiTest edit_testcase<CR>", { desc = "Edit testcase" })
 
 -- Compile & Run
+
+vim.keymap.set("n", "<leader>;", "<cmd> source %<CR>")
+vim.keymap.set("v", "<leader>;", ":lua<CR>")
+
 vim.keymap.set("n", "<localleader>n", function()
   require("config.run").compile_and_run()
 end, { desc = "Run current file" })
@@ -87,3 +114,5 @@ end, { desc = "Return to code from terminal" })
 --gd for going to defination
 --<C-o> to return back
 -- <leader>rn to rename a variable for entire project
+--
+--

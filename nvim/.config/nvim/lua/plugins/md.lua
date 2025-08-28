@@ -39,7 +39,7 @@ return {
       require("render-markdown").setup {
         heading = {
           sign = true,
-          icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+          icons = { "➊ ", "➋ ", "➌ ", "➍ ", "➎ ", "➏ "},
           backgrounds = {
             "MarkdownHeader1",
             "MarkdownHeader2",
@@ -50,6 +50,13 @@ return {
           },
         },
       }
+      -- 💡 FIX: Disable Treesitter highlighting for markdown to prevent extmark errors
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          -- vim.cmd("TSBufDisable highlight")
+        end,
+      })
     end,
   },
   {

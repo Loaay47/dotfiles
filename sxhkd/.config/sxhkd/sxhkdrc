@@ -4,7 +4,7 @@ super + Return
         st
 
 super + w
-        $HOME/dotfiles/scripts/qute.sh
+        $HOME/dotfiles/scripts/zen.sh
 
 super + b
         $HOME/dotfiles/scripts/brave.sh
@@ -12,14 +12,20 @@ super + b
 super + d
         mpv --player-operation-mode=pseudo-gui
 
-super + r
-        rofi -show drun
+super + n
+        localsend
+
+super + t
+        $HOME/dotfiles/scripts/telegram.sh
 
 super + o
+        rofi -show drun
+
+super + r
         $HOME/dotfiles/scripts/search.sh
 
-super + y
-        $HOME/dotfiles/scripts/yt_search.sh
+super + p
+        $HOME/dotfiles/scripts/pdf.sh
 
 super + i
         rofi -show emoji -modi emoji
@@ -57,6 +63,9 @@ super + m
 super + shift + BackSpace
         $HOME/dotfiles/scripts/exit.sh
 
+super + shift + U
+        $HOME/dotfiles/scripts/bt.sh
+
 super + shift + S
         $HOME/dotfiles/scripts/screenshot.sh -s
 
@@ -72,8 +81,11 @@ super + shift + H
 super + shift + W
         st -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
-super + p
+super + y
         $HOME/dotfiles/scripts/mpv_clip.sh
+
+super + shift + y
+        $HOME/dotfiles/scripts/mpv_720.sh
 
 super + semicolon
         st -e sh -c 'cd /media/fun/_loaay_data && ranger .'

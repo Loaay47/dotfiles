@@ -23,7 +23,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export PATH="$HOME/.local/bin:$PATH"
 
-setxkbmap -layout us,ara -variant ,digits -option grp:alt_caps_toggle,caps:swapescape
+setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle
+xmodmap ~/.Xmodmap
 
 # Increase volume of Bluetooth mic to 150%
 btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
@@ -42,6 +43,7 @@ export SSH_AUTH_SOCK
 
 # Background services
 sxhkd &
+mpris-proxy &
 keynav &
 dwmblocks &
 blueman-applet &

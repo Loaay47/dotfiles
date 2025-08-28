@@ -1,27 +1,23 @@
 return {
-  -- 🧱 Mason: Tool installer
-  {
-    "williamboman/mason.nvim",
+  { "williamboman/mason.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup()
     end,
   },
 
-  -- 🧠 Mason LSP config: connects mason to lspconfig
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls", "clangd", "cmake",
-          "html", "cssls", "ts_ls", "marksman", "pyright",  -- ✅ correct names for LSPs
+          "html", "cssls", "ts_ls", "marksman", "pyright",
         },
       })
     end,
   },
 
-  -- 💡 nvim-lspconfig: actual LSP server setup
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -112,9 +108,8 @@ return {
       map("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
       map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
-      map("n", "gt", vim.lsp.buf.type_definition, { desc = "Type definition" })
-      map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
-      map("n", "ca", vim.lsp.buf.code_action, { desc = "Code action" })
+      -- map("n", "gt", vim.lsp.buf.type_definition, { desc = "Type definition" })
+      map("n", "<leader>vca", vim.lsp.buf.code_action, { desc = "Code action" })
     end,
   },
 }

@@ -34,7 +34,7 @@ return {
 				},
 			},
 			runner_ui = {
-				interface = "popup",
+				interface = "split",
 				selector_show_nu = false,
 				selector_show_rnu = false,
 				show_nu = true,
@@ -105,7 +105,7 @@ return {
 			multiple_testing = -1,
 			maximum_time = 5000,
 			output_compare_method = "squish",
-			view_output_diff = false,
+			view_output_diff = true,
 
 			testcases_directory = ".",
 			testcases_use_single_file = true,

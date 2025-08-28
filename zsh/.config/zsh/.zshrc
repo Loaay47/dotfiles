@@ -7,12 +7,14 @@ fi
 setopt autocd extendedglob nomatch notify
 setopt NO_NOMATCH
 setopt NO_NOTIFY
+setopt interactivecomments
 unsetopt beep
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE HIST_IGNORE_DUPS
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall

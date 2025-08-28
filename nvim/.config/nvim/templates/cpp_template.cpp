@@ -11,16 +11,17 @@
 //                           |___/
 #include <iostream>
 #include <vector>
+#include <set>
+#include <map>
 #include <algorithm>
 
 using namespace std;
-#define fastio()                                                               \
-  ios_base::sync_with_stdio(false);                                            \
-  cin.tie(NULL);
-#define vi vector<int>
-#define el "\n"
-
 typedef long long ll;
+typedef long double ld;
+
+#define vi vector<ll>
+#define all(v) v.begin(),v.end()
+#define el "\n"
 
 void solve() {
 
@@ -28,8 +29,8 @@ void solve() {
 }
 
 int main() {
-
-  fastio();
+  ios_base::sync_with_stdio(false);                                            \
+  cin.tie(NULL);
 
   ll tt = 1;
   // cin >> tt;
@@ -38,3 +39,4 @@ int main() {
   }
   return 0;
 }
+
