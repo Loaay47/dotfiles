@@ -1,0 +1,41 @@
+[general]
+import = ["~/.config/alacritty/themes/my-theme.toml"]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "Buttonless"       # Options: Full, None, Transparent, Buttonless
+opacity = 0.93                    # 0.0 (transparent) to 1.0 (opaque)
+
+[font]
+normal.family = "JetBrainsMono Nerd Font"
+normal.style = "Regular"
+bold.family = "JetBrainsMono Nerd Font"
+bold.style = "Bold"
+italic.family = "JetBrainsMono Nerd Font"
+italic.style = "Italic"
+bold_italic.family = "JetBrainsMono Nerd Font"
+bold_italic.style = "Bold Italic"
+size = 11
+
+[colors.primary]
+# background = "#222222"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[keyboard]
+bindings = [
+  { key = "F12", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "F11", mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "F10", mods = "Control|Shift", action = "ResetFontSize" },
+  { key = "Y", mods = "Control|Shift", action = "Copy" },
+  { key = "P", mods = "Control|Shift", action = "Paste" },
+  { key = "K", mods = "Control|Shift", action = "ScrollLineUp" },
+  { key = "J", mods = "Control|Shift", action = "ScrollLineDown" },
+  { key = "U", mods = "Control|Shift", action = "ScrollHalfPageUp" },
+  { key = "D", mods = "Control|Shift", action = "ScrollHalfPageDown" },
+]

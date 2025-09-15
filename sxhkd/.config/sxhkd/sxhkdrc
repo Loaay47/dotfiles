@@ -1,7 +1,7 @@
 # Programs:
 
 super + Return
-        st
+        alacritty
 
 super + w
         $HOME/dotfiles/scripts/zen.sh
@@ -12,10 +12,10 @@ super + b
 super + d
         mpv --player-operation-mode=pseudo-gui
 
-super + n
+super + x
         localsend
 
-super + t
+super + shift + t
         $HOME/dotfiles/scripts/telegram.sh
 
 super + o
@@ -34,10 +34,13 @@ super + c
         rofi -show calc -modi calc -no-sort
 
 super + e
-        st -e ranger
+        alacritty -e ranger
+
+super + shift + e
+        pcmanfm
 
 super + shift + v
-        st -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
+        alacritty -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
 
 super + shift + R
         xcolor | xclip -selection clipboard
@@ -66,6 +69,9 @@ super + shift + BackSpace
 super + shift + U
         $HOME/dotfiles/scripts/bt.sh
 
+super + shift + N
+        $HOME/dotfiles/scripts/define_word.sh
+
 super + shift + S
         $HOME/dotfiles/scripts/screenshot.sh -s
 
@@ -75,11 +81,13 @@ super + shift + F
 super + shift + H
         $HOME/dotfiles/scripts/opacity.sh
 
+super + 0
+        $HOME/dotfiles/scripts/keyboard.sh
  ============================================
 # Tools:
 
 super + shift + W
-        st -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
+        alacritty -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
 super + y
         $HOME/dotfiles/scripts/mpv_clip.sh
@@ -88,16 +96,19 @@ super + shift + y
         $HOME/dotfiles/scripts/mpv_720.sh
 
 super + semicolon
-        st -e sh -c 'cd /media/fun/_loaay_data && ranger .'
+        alacritty -e sh -c 'cd /media/fun/_loaay_data && ranger .'
 
 super + f
-        st -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+        alacritty -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
 
 super + shift + o
         $HOME/dotfiles/scripts/screencast.sh
 
 super + v
         clipmenu
+
+super + shift + a
+        $HOME/dotfiles/scripts/arabic.sh
 
  ============================================
 

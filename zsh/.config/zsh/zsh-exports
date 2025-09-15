@@ -9,6 +9,7 @@ export BROWSER=brave
 export TERMINAL=st
 export PATH=$PATH:/var/lib/flatpak/exports/bin
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/dotfiles/scripts"
 export PATH="$HOME/go/bin:$PATH"
 export GTK_THEME=Materia-Dark
 export GTK_ICON_THEME=Papirus-Dark

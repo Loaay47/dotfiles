@@ -1,6 +1,7 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
+    enabled = false,
     dependencies = {
       "craftzdog/solarized-osaka.nvim",
       "nvim-treesitter/nvim-treesitter",

@@ -94,6 +94,8 @@ vim.keymap.set("n", "<localleader>et", "<cmd>CompetiTest edit_testcase<CR>", { d
 
 vim.keymap.set("n", "<leader>;", "<cmd> source %<CR>")
 vim.keymap.set("v", "<leader>;", ":lua<CR>")
+vim.keymap.set("n", "<leader>rn", ":!go run %<CR>")
+vim.keymap.set("n", "<leader>r;", ":!go test<CR>")
 
 vim.keymap.set("n", "<localleader>n", function()
   require("config.run").compile_and_run()

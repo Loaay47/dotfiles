@@ -15,6 +15,7 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export CM_LAUNCHER=rofi
+export GTK_THEME=Adwaita-dark
 
 
 # XDG base directories

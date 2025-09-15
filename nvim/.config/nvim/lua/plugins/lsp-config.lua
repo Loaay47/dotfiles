@@ -40,6 +40,9 @@ return {
       -- CMake
       lspconfig.cmake.setup({ capabilities = capabilities })
 
+      -- go
+      lspconfig.gopls.setup({ capabilities = capabilities })
+
       -- HTML
       lspconfig.html.setup({ capabilities = capabilities })
 
@@ -109,7 +112,7 @@ return {
       map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
       -- map("n", "gt", vim.lsp.buf.type_definition, { desc = "Type definition" })
-      map("n", "<leader>vca", vim.lsp.buf.code_action, { desc = "Code action" })
+      map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
     end,
   },
 }

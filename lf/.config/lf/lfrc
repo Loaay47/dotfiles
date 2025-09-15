@@ -1,112 +1,135 @@
-# Converted ranger config to lf config (lfrc)
+set previewer ~/.config/lf/previewer
 
-# SETTINGS
-drawbox
-#set hidden!
-#set icons!
-set preview!
-#set info "size"
-set ratios 1:1
-set scrolloff 8
+# Basic Settings
+set hidden true
+set ignorecase true
+set icons true
+set sixel true
+set rulerfmt "%d  |%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t"
 
-# ALIASES
-cmd e $EDITOR "$f"
-cmd q quit
-cmd qa quit
-cmd qall quit
-cmd q! quit
+# Custom Functions
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
 
-# BASIC KEYS
-map Q quit
-map q quit
-map <c-r> reload
-map <c-c> cancel
-map i open
-map ? help
-map S shell $SHELL
-map : push :
-map ; push :
-map ! push !
-map f filter
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
 
-map <space> toggle
-map va select-all
-map uv unselect-all
+cmd setwallpaper ${{
+    setwallpaper "$f"
+}}
 
-map <f1> help
-map <f3> open
-map <f4> $EDITOR "$f"
-map <f5> shell cp "$f" "$f".copy
-map <f6> shell mv "$f" "$f".cut
-map <f7> shell mkdir
-map <f8> delete
-map <f10> quit
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.rar) unrar x "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *.7z) 7z e "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
 
-map h updir
-map l open
-map j down
-map k up
-map gg top
-map G bottom
+# Trash bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
 
-map H back
-map L forward
-map ] updir
-map [ updir
+    trashy put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
 
-map ge cd /etc
-map gu cd /usr
-map gM cd /mnt
-map gr cd /
+cmd open &{{
+	case $(file --mime-type -Lb $f) in
+		text/*) lf -remote "send $id \$nvim \$fx";;
+		*) xdg-open "$f"
+	esac
+}}
 
-map <c-n> push :tabnew
-map <c-w> push :tabclose
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f")\""
+}}
 
-map E $EDITOR "$f"
-map du shell du -sh "$f"
-map dU shell du -h --max-depth=1 "$f" | sort -rh
-map yp shell echo "$d/$f" | xclip -selection clipboard
-map yd shell echo "$d" | xclip -selection clipboard
-map yn shell echo "$f" | xclip -selection clipboard
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+map <c-f> :fzf_jump
 
-map = chmod
-map cw rename
-map aa rename
-map pp paste
-map dD delete
-map dd cut
-map yy copy
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
+map <c-g> :fzf_search
 
-map / filter
-map n search-next
-map N search-prev
+cmd z-jump ${{
+  ZLUA_SCRIPT="$ZDOTDIR/plugins/z.lua/z.lua"
+  lf -remote "send ${id} cd \"$($ZLUA_SCRIPT -e $@ | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+map Z push :z-jump<space>-I<space>
+map zb push :z-jump<space>-b<space>
+map zz push :z-jump<space>
 
-map or set reverse!
-map oz set sort random
-map os set sort size
-map ob set sort name
-map on set sort natural
-map om set sort time
-map oe set sort ext
+# Bindings
+map c
+map d
+map m
 
-map zc set drawbox!
-map zh set hidden!
-map zp set preview!
-map zm set mouse!
-map zs set info!
-map zf filter
+map co $vscodium "$f"
+map cf $dotbare fadd -f
 
-map sp shell bash speedvid.sh "$f"
-map x shell chmod +x "$f"
-map mk shell mkdir "$f"
-map V $EDITOR "$f"
-map D delete
-map X shell atool -x "$f"
-map Z shell tar -cvzf "$f".tar.gz "$f"
-map <c-f> shell fzf | open
-map <c-l> shell locate "$f" | open
+map au unarchive
+map ae $wine "$f"
 
-# Cleaned: removed invalid ranger-specific aliases (scout, travel, etc.).
-# Fixed 'f' and '/' to use 'filter' instead of push.
-# Aliases section cleared because lf doesn't support custom subcommands like 'scout'.
+# Basic Functions
+map . set hidden!
+map dd trash
+map u $trashy restore -r 0
+map dr $trashy restore
+map de $trashy empty --all
+map p paste
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map bg setwallpaper
+map C clear
 
+# Movement
+map gc cd ~/.config
+map gD cd ~/documents
+map gd cd ~/downloads
+map gp cd ~/pictures
+map gr cd ~/repos
+map gv cd ~/videos
+map gs cd ~/.local/bin
+map gt cd ~/.local/share/Trash/files

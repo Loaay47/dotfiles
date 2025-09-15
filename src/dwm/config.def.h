@@ -23,7 +23,7 @@ static const char *colors[][3] = {
 /* tagging */
 static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = {"st", "-t", "scratchpad", NULL};
+static const char *scratchpadcmd[] = {"alacritty", "-t", "scratchpad", NULL};
 static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
@@ -32,7 +32,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
     {"google-chrome", NULL, NULL, 1 << 5, 0, 0, -1},
-    {"st", "scratchpad", NULL, 0, 1, 1, -1},
+    {"alacritty", "scratchpad", NULL, 0, 1, 1, -1},
 };
 
 

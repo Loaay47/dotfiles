@@ -20,6 +20,7 @@ vim.o.timeoutlen = 500
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.conceallevel = 2
 
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8

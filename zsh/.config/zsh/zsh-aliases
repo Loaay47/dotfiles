@@ -20,8 +20,9 @@ alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cclip="xclip -selection clipboard"
 alias mpvs="mpv --no-video"
 alias net="vnstat -i wlp1s0 --oneline"
+alias ya='timer 600 && { notify-send -t 39000 -u critical "🕌 Iqamah" "Get up for prayer" & mpv --no-config --volume=80  ~/sounds/iqamah.mp3 }'
 
 alias dop='cd "/media/fun/_loaay_data"'
-alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc --video-bit-rate=1M'
+alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc --video-bit-rate=4M'
 alias rain='mpv --no-video --volume=26 --cache=yes --cache-secs=30 --ytdl-format=bestaudio "https://youtube.com/watch?v=nDq6TstdEi8"'
 

@@ -30,8 +30,6 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # If someone wants to make this extensible, i'll accept
-    # PR
     selected=$(find ~/ ~/projects ~/personal ~/dotfiles/src ~/dotfiles ~/tools -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
