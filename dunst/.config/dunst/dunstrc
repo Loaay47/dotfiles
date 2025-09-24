@@ -5,6 +5,7 @@
     offset = (20, 40)
     frame_width = 0
     corner_radius = 12
+    show_age_threshold = -1
 
     # Transparent white using alpha (#RRGGBBAA)
     background = "#ffffff99"

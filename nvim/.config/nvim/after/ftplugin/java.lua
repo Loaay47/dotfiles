@@ -32,5 +32,6 @@ local function run_java()
   runner:send(cmd, true) -- ✅ Send without adding extra newline
 end
 
-vim.keymap.set("n", "<leader>h", run_java, { buffer = true, desc = "Compile & Run Java" })
+-- vim.keymap.set("n", "<leader>h", run_java, { buffer = true, desc = "Compile & Run Java" })
+--
 

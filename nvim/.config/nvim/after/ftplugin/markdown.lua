@@ -26,53 +26,30 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
+vim.keymap.set("n", "<leader>wl", function()
+  local line = vim.api.nvim_get_current_line()
+  local col = vim.fn.col(".")
+  local char = line:sub(col, col)
 
-
---[[
-local file_watcher
-local reload_timer
-
-local function reload()
-  vim.schedule(function()
-    if vim.api.nvim_buf_get_option(0, "modified") then
-      return
-    end
-    vim.cmd("edit!")
-    print("Buffer reloaded due to external change")
-  end)
-end
-
-local function start_watcher()
-  local file_path = vim.fn.expand("%:p")
-  if file_path == "" then return end
-
-  if file_watcher then
-    file_watcher:stop()
-    file_watcher:close()
+  if char == "|" or line:sub(col - 1, col - 1) == "|" then
+    local insert_pos = (char == "|") and col or col
+    local new_line = line:sub(1, insert_pos) .. " ✅" .. line:sub(insert_pos + 4)
+    vim.api.nvim_set_current_line(new_line)
+    vim.fn.cursor(0, insert_pos + 4)
   end
+end, { noremap = true, silent = true })
 
-  file_watcher = vim.uv.new_fs_event()
-  file_watcher:start(file_path, {}, function(err)
-    if err then
-      print("File watch error: " .. err)
-      return
-    end
 
-    -- debounce: cancel previous timer if it exists
-    if reload_timer then
-      reload_timer:stop()
-      reload_timer:close()
-    end
+vim.keymap.set("n", "<leader>w;", function()
+  local line = vim.api.nvim_get_current_line()
+  if line:find("false") then
+    line = line:gsub("false", "true", 1)
+  elseif line:find("true") then
+    line = line:gsub("true", "false", 1)
+  end
+  vim.api.nvim_set_current_line(line)
+end, { noremap = true, silent = true })
 
-    reload_timer = vim.uv.new_timer()
-    reload_timer:start(100, 0, function()  -- 100ms delay
-      reload()
-      reload_timer:stop()
-      reload_timer:close()
-      reload_timer = nil
-    end)
-  end)
-end
 
-start_watcher()
- ]]
+
+

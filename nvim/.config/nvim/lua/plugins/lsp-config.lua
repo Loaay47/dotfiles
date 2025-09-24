@@ -11,8 +11,8 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls", "clangd", "cmake",
-          "html", "cssls", "ts_ls", "marksman", "pyright",
+          "clangd", "cmake", -- lua_ls
+          "html", "cssls", "ts_ls", "marksman", "pyright", "asm_lsp",
         },
       })
     end,
@@ -29,7 +29,7 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- Lua
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      -- lspconfig.lua_ls.setup({ capabilities = capabilities })
 
       -- C/C++
       lspconfig.clangd.setup({
@@ -48,6 +48,19 @@ return {
 
       -- CSS
       lspconfig.cssls.setup({ capabilities = capabilities })
+
+      -- ASM
+      lspconfig.asm_lsp.setup({ capabilities = capabilities })
+      local orig = vim.lsp.handlers["window/showMessage"]
+      vim.lsp.handlers["window/showMessage"] = function(err, result, ctx, config)
+        local client = vim.lsp.get_client_by_id(ctx.client_id)
+        if client and client.name == "asm_lsp" then
+          if result and result.message:match("No .asm%-lsp.toml config file found") then
+            return -- swallow just this warning
+          end
+        end
+        return orig(err, result, ctx, config)
+      end
 
       -- JavaScript / TypeScript
       lspconfig.ts_ls.setup({
