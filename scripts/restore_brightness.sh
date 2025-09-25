@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 STATE_FILE="$HOME/.brightness_level"
 
 if [ -f "$STATE_FILE" ]; then

@@ -9,6 +9,9 @@ vim.keymap.set("n", "<leader>gs", function()
   vim.cmd("Git")
 end)
 
+--quickfix
+vim.keymap.set('n', '<M-n>', ':cnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-p>', ':cprev<CR>', { noremap = true, silent = true })
 
 -- Navigation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -19,30 +22,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Markdown shortcuts
-vim.keymap.set("n", "<leader>1", "yyP<Esc>I# ")
-vim.keymap.set("n", "<leader>2", "yyP<Esc>I## ")
-vim.keymap.set("n", "<leader>3", "yyP<Esc>I### ")
-vim.keymap.set("n", "<leader>4", "yyP<Esc>I#### ")
-vim.keymap.set("n", "<leader>to", function()
-  local line_nr = vim.api.nvim_win_get_cursor(0)[1]
-  local line = vim.fn.getline(line_nr)
-  local new_line = nil
-
-  if line:match("%- %[ %]") then
-    new_line = line:gsub("%- %[ %]", "- [x]")
-  elseif line:match("%- %[x%]") then
-    new_line = line:gsub("%- %[x%]", "- [ ]")
-  end
-
-  if new_line then
-    vim.fn.setline(line_nr, { new_line })
-  end
-end)
-
 -- Add newline
-vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader><CR>", "O<Esc>", { noremap = true, silent = true })
+--[[ vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader><CR>", "O<Esc>", { noremap = true, silent = true }) ]]
 vim.keymap.set('n', 'j', 'gj', { noremap = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true })
 
@@ -68,17 +50,26 @@ vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Move left" })
 vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move down" })
 vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move Up" })
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/scripts/tmux-sessionizer.sh<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/dotfiles/scripts/tmux-sessionizer.sh<CR>")
 
 -- Buffer navigation
-vim.keymap.set("n", "<localleader><Tab>", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { silent = true })
+
+-- close current buffer safely
+vim.keymap.set("n", "<leader>bd", ":bp | bd #<CR>", { silent = true })
+
+-- switch to last buffer
+vim.keymap.set("n", "<leader>bl", ":e #<CR>", { silent = true })
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "q:", "<Nop>")
+
+--[[ vim.keymap.set("n", "<localleader><Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader><Tab>", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<localleader>x', ':bp | bd #<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>n", ":enew<CR>", { noremap = true, silent = true })
-vim.keymap.set('n', '<localleader>u', ':e #<CR>', { noremap = true, silent = true })
-vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "q:", "<Nop>")
+vim.keymap.set("n", "<leader>n", ":enew<CR>", { noremap = true, silent = true }) ]]
+
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>c", "<cmd>!chmod +x %<CR>", { silent = true })

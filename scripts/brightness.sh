@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 STEP="5%"
 STATE_FILE="$HOME/.brightness_level"

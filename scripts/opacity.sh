@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PICOM_NORMAL="$HOME/.config/picom/picom.conf"
 PICOM_FULL="$HOME/.config/picom/picom_off.conf"

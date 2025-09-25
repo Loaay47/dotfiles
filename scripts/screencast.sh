@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 RECORDING_FILE="$HOME/screencast/recording_$(date +%F_%T).mp4"
 PIDFILE="/tmp/screencast.pid"

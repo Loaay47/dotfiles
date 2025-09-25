@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 query="$(rofi -dmenu -p 'YouTube Search:')"
 [ -z "$query" ] && exit 0

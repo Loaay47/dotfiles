@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PREV_STATUS_FILE="/tmp/battery_status_prev"
 

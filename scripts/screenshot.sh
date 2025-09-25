@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mkdir -p ~/Pictures/Screenshots
 FILE=~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png

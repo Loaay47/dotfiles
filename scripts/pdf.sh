@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 USAGE_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/pdf_usage.txt"
 

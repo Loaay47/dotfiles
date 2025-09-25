@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Let user pick a process (full command shown)
 line=$(ps -u "$USER" -o pid,cmd --sort=-%mem | fzf --header="Select a process to kill")

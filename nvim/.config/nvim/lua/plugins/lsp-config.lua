@@ -99,7 +99,7 @@ return {
         end,
       })
       vim.diagnostic.config({
-        virtual_text = false, -- Show inline text
+        virtual_text = true, -- Show inline text
         signs = true,         -- Show signs in the gutter
         update_in_insert = false,
         underline = true,
@@ -113,19 +113,19 @@ return {
       })
 
       -- Show diagnostics on CursorHold
-      vim.o.updatetime = 150;
+      --[[ vim.o.updatetime = 150;
       vim.api.nvim_create_autocmd("CursorHold", {
         callback = function()
           vim.diagnostic.open_float(nil, { focus = false })
         end
-      })
+      }) ]]
       -- 🔧 Keymaps
       local map = vim.keymap.set
       map("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
       map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
       map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
       -- map("n", "gt", vim.lsp.buf.type_definition, { desc = "Type definition" })
-      map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+      map("n", "<leader>cn", vim.lsp.buf.code_action, { desc = "Code action" })
     end,
   },
 }

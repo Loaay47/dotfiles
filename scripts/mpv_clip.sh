@@ -10,12 +10,4 @@ fi
 
 notify-send -t 20000 -i /usr/share/icons/hicolor/64x64/apps/mpv.png "Mpv loading...480p"
 
-if  mpv --no-resume-playback --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]/best" "$url" ; then
-    # If fallback also fails, notify error
-    if ! mpv --no-resume-playback --ytdl-format="best" "$url"; then
-        notify-send -i /usr/share/icons/hicolor/64x64/apps/mpv.png "mpv failed to play URL"
-        exit 1
-    fi
-fi
-
-# exec mpv --no-resume-playback --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]/best" "$url" || exec mpv --no-resume-playback --ytdl-format="best" "$url"
+exec mpv --no-resume-playback --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]/best" "$url" || exec mpv --no-resume-playback --ytdl-format="best" "$url"

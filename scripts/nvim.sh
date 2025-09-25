@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 notify-send -t 1500 "nvim loading..." >/dev/null 2>&1
 

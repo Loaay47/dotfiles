@@ -1,6 +1,24 @@
 vim.opt_local.wrap = true
 vim.opt_local.linebreak = true
 
+-- Markdown shortcuts
+vim.keymap.set("n", "<leader>to", function()
+  local line_nr = vim.api.nvim_win_get_cursor(0)[1]
+  local line = vim.fn.getline(line_nr)
+  local new_line = nil
+
+  if line:match("%- %[ %]") then
+    new_line = line:gsub("%- %[ %]", "- [x]")
+  elseif line:match("%- %[x%]") then
+    new_line = line:gsub("%- %[x%]", "- [ ]")
+  end
+
+  if new_line then
+    vim.fn.setline(line_nr, { new_line })
+  end
+end)
+
+
 vim.keymap.set("n", "<leader>pf", ":ObsidianQuickSwitch<CR>", { buffer = true, silent = true })
 vim.keymap.set("n", "<leader>wn", ":ObsidianOpen<CR>", { buffer = true, silent = true })
 vim.keymap.set("n", "<leader>wm", ":ObsidianTemplate<CR>", { buffer = true, silent = true })
