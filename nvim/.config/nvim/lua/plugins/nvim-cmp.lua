@@ -30,6 +30,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      preselect = cmp.PreselectMode.Item,
       mapping = cmp.mapping.preset.insert({}),
       -- sources for autocompletion
       sources = cmp.config.sources({

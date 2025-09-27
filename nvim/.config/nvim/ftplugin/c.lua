@@ -13,5 +13,5 @@ local function run_c()
   runner:send(cmd .. "\n")
 end
 
--- vim.keymap.set("n", "<leader>", run_c, { buffer = true, desc = "Compile & Run C" })
+vim.keymap.set("n", "<localleader>c", run_c, { buffer = true, desc = "Compile & Run C" })
 
