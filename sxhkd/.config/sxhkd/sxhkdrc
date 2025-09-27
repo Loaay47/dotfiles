@@ -1,7 +1,7 @@
 # Programs:
 
 super + Return
-        wezterm
+        $TERMINAL
 
 super + w
         $HOME/dotfiles/scripts/zen.sh
@@ -34,13 +34,13 @@ super + c
         rofi -show calc -modi calc -no-sort
 
 super + e
-        wezterm -e ranger
+        $TERMINAL -e ranger
 
 super + shift + e
         pcmanfm
 
 super + shift + v
-        wezterm -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
+        $TERMINAL -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
 
 super + shift + R
         xcolor | xclip -selection clipboard
@@ -87,7 +87,7 @@ super + 0
 # Tools:
 
 super + shift + W
-        wezterm -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
+        $TERMINAL -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
 super + y
         $HOME/dotfiles/scripts/mpv_clip.sh
@@ -96,10 +96,10 @@ super + shift + y
         $HOME/dotfiles/scripts/mpv_720.sh
 
 super + semicolon
-        wezterm -e sh -c 'cd /media/fun/_loaay_data && ranger .'
+        $TERMINAL -e sh -c 'cd /media/fun/_loaay_data && ranger .'
 
 super + f
-        wezterm -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+        $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
 
 super + shift + o
         $HOME/dotfiles/scripts/screencast.sh

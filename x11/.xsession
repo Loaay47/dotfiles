@@ -24,6 +24,14 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set env vars
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER=zen-browser
+export TERMINAL=wezterm
+export FILE_MANAGER=pcmanfm
+
+# keyboard conf
 setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle
 xmodmap ~/.Xmodmap
 

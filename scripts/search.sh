@@ -9,6 +9,6 @@ if ! echo "$input" | grep -Eiq '^[a-zA-Z]+://|localhost|\.com|\.org|\.net|\.io|\
     input="https://www.duckduckgo.com/search?q=$(printf "%s" "$input" | jq -s -R -r @uri)"
 fi
 
-zen-browser "$input"
+$BROWSER "$input"
 sleep 0.5
 xdotool key super+1
