@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "."
 
+-- improvements
+vim.keymap.set("n", "<leader>m", ":w | make run<CR>")
+
 --Ex
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -34,7 +37,7 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 -- terminal navigation
 local term_buf = nil
-vim.keymap.set("n", "<leader>m", function()
+vim.keymap.set("n", "<leader>o", function()
   if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
     local win = vim.fn.bufwinid(term_buf)
     if win ~= -1 then

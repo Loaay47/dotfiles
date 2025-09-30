@@ -1,37 +1,48 @@
-local Terminal = require("toggleterm.terminal").Terminal
-local runner = Terminal:new({ direction = "horizontal", close_on_exit = false, hidden = true })
+  vim.cmd("compiler javac")
 
-local function run_java()
-  local fname = vim.fn.expand("%:p")
-  local file = io.open(fname, "r")
-  local package_name = ""
-
-  if file then
-    for line in file:lines() do
-      local match = line:match("^%s*package%s+([%w%.]+)%s*;")
-      if match then
-        package_name = match
-        break
-      end
-    end
-    file:close()
-  end
-
-  local class_name = fname:match("([^/]+)%.java$")
-  local full_class_name = (package_name ~= "" and package_name .. "." .. class_name) or class_name
-  local root_dir = fname:match("(.*/)(com/.*%.java)$")
-  root_dir = root_dir or fname:match("(.*/)") or "."
-
-  local cmd = string.format("javac %s && java -cp %s %s", fname, root_dir, full_class_name)
-
-  if not runner:is_open() then runner:toggle() end
-  if runner.window and vim.api.nvim_win_is_valid(runner.window) then
-    vim.api.nvim_win_set_height(runner.window, 8)
-  end
-
-  runner:send(cmd, true) -- ✅ Send without adding extra newline
+local function Compile()
+  vim.cmd("silent write")
+  vim.cmd("cd %:p:h")
+  vim.cmd("silent make")
+  vim.cmd("cd -")
+  vim.cmd("cwindow")
 end
 
--- vim.keymap.set("n", "<leader>h", run_java, { buffer = true, desc = "Compile & Run Java" })
---
+local function OnError(_, data, _)
+  if data then
+    local msgs = vim.tbl_filter(function(msg)
+      return msg ~= ""
+        and not msg:match("^info:")
+        and not msg:match("bogus font ascent/descent")
+    end, data)
+    if #msgs > 0 then
+      vim.api.nvim_err_writeln(table.concat(msgs, "\n"))
+    end
+  end
+end
+
+function Run()
+
+  if not (vim.fn.filereadable("Makefile") == 1 or vim.fn.filereadable("makefile") == 1) then
+    vim.cmd("silent write")
+    vim.cmd("cd %:p:h")
+    vim.cmd("silent make")
+    vim.cmd("cd -")
+    vim.cmd("cwindow")
+    local classname = vim.fn.expand("%:t:r")
+    local classfile = classname .. ".class"
+    if vim.fn.filereadable(classfile) == 1 then
+      print(vim.fn.system("java " .. classname))
+    else
+      vim.api.nvim_err_writeln("Class not found: " .. classfile)
+    end
+
+  else
+    vim.cmd("make run")
+  end
+end
+
+
+vim.keymap.set("n", "<localleader>c", Compile, { buffer = true, silent = true })
+vim.keymap.set("n", "<localleader>r", Run, { buffer = true })
 

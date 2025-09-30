@@ -1,4 +1,4 @@
--- lua/config/run.lua
+--[[ -- lua/config/run.lua
 local Terminal = require("toggleterm.terminal").Terminal
 
 local runner = nil
@@ -121,4 +121,4 @@ function M.close_terminal()
   end
 end
 
-return M
+return M ]]
