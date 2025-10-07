@@ -39,7 +39,6 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
-
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
@@ -48,5 +47,13 @@ return {
         }),
       },
     })
+    --setup vim-dadbod
+    cmp.setup.filetype({ "sql" },  {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
+    })
+
   end,
 }

@@ -45,5 +45,17 @@ return {
     },
 
   },
-
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "markdown",
+      callback = function()
+        if vim.fn.expand("%:p"):find(vim.fn.expand("~/vault")) then
+          vim.keymap.set("n", "<leader>pf", ":ObsidianQuickSwitch<CR>", { buffer = true, silent = true })
+          vim.keymap.set("n", "<leader>wn", ":ObsidianOpen<CR>", { buffer = true, silent = true })
+          vim.keymap.set("n", "<leader>wm", ":ObsidianTemplate<CR>", { buffer = true, silent = true })
+        end
+      end,
+    })
+  end,
 }

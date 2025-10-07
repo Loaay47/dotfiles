@@ -54,6 +54,7 @@ function ranger-cd {
 #ranger-cd will run by alt+r
 bindkey -s "^\er" "ranger-cd\n"
 bindkey '^n' autosuggest-accept
+bindkey -s '^f' "tmux-sessionizer\n"
 
 # Auto  completion
 autoload -Uz compinit

@@ -24,11 +24,7 @@ end
 function Run()
 
   if not (vim.fn.filereadable("Makefile") == 1 or vim.fn.filereadable("makefile") == 1) then
-    vim.cmd("silent write")
-    vim.cmd("cd %:p:h")
-    vim.cmd("silent make")
-    vim.cmd("cd -")
-    vim.cmd("cwindow")
+
     local classname = vim.fn.expand("%:t:r")
     local classfile = classname .. ".class"
     if vim.fn.filereadable(classfile) == 1 then

@@ -18,11 +18,6 @@ vim.keymap.set("n", "<leader>to", function()
   end
 end)
 
-
-vim.keymap.set("n", "<leader>pf", ":ObsidianQuickSwitch<CR>", { buffer = true, silent = true })
-vim.keymap.set("n", "<leader>wn", ":ObsidianOpen<CR>", { buffer = true, silent = true })
-vim.keymap.set("n", "<leader>wm", ":ObsidianTemplate<CR>", { buffer = true, silent = true })
-
 vim.api.nvim_create_autocmd("BufEnter", {
   buffer = 0, -- only this buffer
   callback = function()

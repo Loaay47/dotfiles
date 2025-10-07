@@ -15,7 +15,7 @@ super + d
 super + x
         localsend
 
-super + shift + t
+super + t
         $HOME/dotfiles/scripts/telegram.sh
 
 super + o
@@ -98,8 +98,8 @@ super + shift + y
 super + semicolon
         $TERMINAL -e sh -c 'cd /media/fun/_loaay_data && ranger .'
 
-super + f
-        $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer.sh"
+# super + f
+#         $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
 
 super + shift + o
         $HOME/dotfiles/scripts/screencast.sh

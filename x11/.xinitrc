@@ -21,7 +21,7 @@ fi
 export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin"
 
 # Background services
-sxhkd & 
+sxhkd &
 #dwmblocks &
 #blueman-applet &
 dunst &
