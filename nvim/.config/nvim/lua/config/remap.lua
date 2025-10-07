@@ -10,6 +10,8 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<M-a>", "ggVG")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
+
+
 --quickfix
 vim.keymap.set('n', '<leader>q', function()
  if vim.fn.getqflist({ winid = 0 }).winid > 0 then
