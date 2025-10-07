@@ -17,9 +17,9 @@ return {
 
   -- more history
   scrollback_lines = 10000,
+  cursor_blink_rate = 0,
 
   -- window managing
-  -- window_background_opacity = 0.80,
   window_padding = {
     left = 0,
     right = 0,

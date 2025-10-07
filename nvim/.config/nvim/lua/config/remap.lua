@@ -18,10 +18,8 @@ vim.keymap.set('n', '<leader>q', function()
     vim.cmd("copen")
   end
 end)
-
-
-vim.keymap.set('n', '<M-n>', ':cnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-p>', ':cprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-n>', ':cnext<CR>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-p>', ':cprev<CR>zz', { noremap = true, silent = true })
 
 -- Navigation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -56,7 +54,7 @@ vim.keymap.set('n', 'k', 'gk', { noremap = true })
 --split window
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+-- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 vim.keymap.set("n", "<leader>s;", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer navigation
@@ -88,7 +86,7 @@ vim.keymap.set("n", "q:", "<Nop>")
 
 -- prime prime
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>c", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 --Competitive Programming
 vim.keymap.set("n", "<localleader>t", "<cmd>CompetiTest run<CR>")

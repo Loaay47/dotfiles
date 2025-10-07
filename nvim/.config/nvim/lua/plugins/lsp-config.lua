@@ -69,7 +69,8 @@ return {
           client.server_capabilities.documentFormattingProvider = false -- optional
         end,
       })
-      -- Java (jdtls loads manually)
+
+    -- Java (jdtls loads manually)
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
         callback = function()
@@ -98,6 +99,7 @@ return {
           })
         end,
       })
+
       vim.diagnostic.config({
         virtual_text = true, -- Show inline text
         signs = true,         -- Show signs in the gutter
@@ -112,13 +114,6 @@ return {
         },
       })
 
-      -- Show diagnostics on CursorHold
-      --[[ vim.o.updatetime = 150;
-      vim.api.nvim_create_autocmd("CursorHold", {
-        callback = function()
-          vim.diagnostic.open_float(nil, { focus = false })
-        end
-      }) ]]
       -- 🔧 Keymaps
       local map = vim.keymap.set
       map("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
