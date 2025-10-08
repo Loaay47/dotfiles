@@ -65,11 +65,11 @@ vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bl", ":e #<CR>", { silent = true })
 vim.keymap.set("n", "<leader>b;", ":bp | bd #<CR>", { silent = true })
 
---[[ -- windows navigation
+ -- windows navigation
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-h>", "<C-w>h") ]]
+vim.keymap.set("n", "<C-h>", "<C-w>h")
 
 
 -- Prevent 'x' from copying deleted characters to the clipboard
