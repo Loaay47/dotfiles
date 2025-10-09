@@ -11,7 +11,7 @@ return {
     local presets = require("markview.presets")
     require("markview").setup({
       experimental = {
-        check_rtp_message = false, -- hide the load-order warning
+        check_rtp_message = false,
       },
       markdown = {
         tables = presets.tables.rounded,

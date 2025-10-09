@@ -13,7 +13,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-		{ "j-hui/fidget.nvim", opts = {} },
+		-- { "j-hui/fidget.nvim", opts = {} },
 		{ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 
 		-- Schema information
@@ -151,8 +151,8 @@ return {
 				local builtin = require("telescope.builtin")
 
 				vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-				vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = 0 })
-				vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0 })
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
 				vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
