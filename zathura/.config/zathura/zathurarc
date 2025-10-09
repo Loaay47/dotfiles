@@ -38,7 +38,6 @@ set recolor-lightcolor          "rgba(40,40,40,1)"     # bg
 set recolor-darkcolor           "rgba(235,219,178,1)"  # fg
 set recolor                     true
 set recolor-keephue             true                 # keep original color
-
 set selection-clipboard clipboard
 
 # remap
@@ -53,3 +52,4 @@ map H navigate previous
 map L navigate next
 
 map m set recolor false
+

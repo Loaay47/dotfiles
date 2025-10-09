@@ -38,25 +38,3 @@ end
 vim.keymap.set("n", "<localleader>c", Compile, { buffer = true, silent = true })
 vim.keymap.set("n", "<localleader>r", Run, { buffer = true })
 
-
--- Java lsp config
-local jdtls = require("jdtls")
-local setup = require("jdtls.setup")
-
-local root_dir = setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml" })
-if not root_dir then
-  vim.notify("JDTLS: Root directory not found", vim.log.levels.WARN)
-  return
-end
-
-local home = vim.env.HOME
-local workspace = ("%s/.local/share/eclipse/%s"):format(home, vim.fn.fnamemodify(root_dir, ":p:h:t"))
-
-jdtls.start_or_attach({
-  cmd = { "jdtls", "-configuration", workspace, "-data", workspace },
-  root_dir = root_dir,
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  settings = { java = {} },
-  init_options = { bundles = {} },
-})
-

@@ -1,33 +1,64 @@
-# Start D-Bus session
-if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+# Sourcing xprofile
+if [ -f ~/.xprofile ]; then
+    source ~/.xprofile
 fi
 
-setxkbmap -layout us,ara -variant ,digits -option grp:alt_caps_toggle,caps:swapescape
+# Start D-Bus session early
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+  eval "$(dbus-launch --sh-syntax)"
+  export DBUS_SESSION_BUS_ADDRESS
+fi
+
+# Start D-Bus session
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export CM_LAUNCHER=rofi
+export GTK_THEME=Adwaita-dark
+
+
+# XDG base directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Set env vars
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER=zen-browser
+export TERMINAL=wezterm
+export FILE_MANAGER=pcmanfm
+
+# keyboard conf
+setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle
+xmodmap ~/.Xmodmap
+
+# Increase volume of Bluetooth mic to 150%
+btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
+[ -n "$btmic" ] && pactl set-source-volume "$btmic" 135%
+
 
 #Changing Background
-#feh --bg-fill ~/Downloads/solid-color-image.png
+feh --bg-fill ~/Pictures/hyprland_wallpapers/Dark_Nature.png
 
-# Mounting sdb5 / sdb6 automatically
-if ! findmnt -S /dev/sdb5 > /dev/null 2>&1; then
-    udisksctl mount -b /dev/sdb5
-fi
+eval $(/usr/bin/gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
-# Check and mount /dev/sda6 if not mounted
-if ! findmnt -S /dev/sdb6 > /dev/null 2>&1; then
-    udisksctl mount -b /dev/sdb6
-fi
-
-export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin"
+~/dotfiles/scripts/restore_brightness.sh &
 
 # Background services
 sxhkd &
-#dwmblocks &
-#blueman-applet &
+mpris-proxy &
+# keynav &
+dwmblocks &
+blueman-applet &
 dunst &
-# picom -b --experimental-backends &
+# gromit-mpx &
+syncthing serve --no-browser --logfile=default &
+picom -b &
+clipmenud &
+# go-pray daemon &
 exec dwm
-
-
-
 

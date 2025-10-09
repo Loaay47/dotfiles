@@ -9,9 +9,9 @@ return {
       version = "v2.*",
       build = "make install_jsregexp",
     },
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "saadparwaiz1/cmp_luasnip",   -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
+    "onsails/lspkind.nvim",       -- vs-code like pictograms
   },
   config = function()
     local cmp = require("cmp")
@@ -30,11 +30,13 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      preselect = cmp.PreselectMode.Item,
-      mapping = cmp.mapping.preset.insert({}),
-      -- sources for autocompletion
+      mapping = {
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+      },
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
@@ -46,14 +48,26 @@ return {
           ellipsis_char = "...",
         }),
       },
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.locality,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
     })
     --setup vim-dadbod
-    cmp.setup.filetype({ "sql" },  {
+    cmp.setup.filetype({ "sql" }, {
       sources = {
         { name = "vim-dadbod-completion" },
         { name = "buffer" },
       },
     })
-
   end,
 }

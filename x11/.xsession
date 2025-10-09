@@ -43,8 +43,6 @@ btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
 #Changing Background
 feh --bg-fill ~/Pictures/hyprland_wallpapers/Dark_Nature.png
 
-export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin"
-
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
@@ -53,7 +51,7 @@ export SSH_AUTH_SOCK
 # Background services
 sxhkd &
 mpris-proxy &
-keynav &
+# keynav &
 dwmblocks &
 blueman-applet &
 dunst &
