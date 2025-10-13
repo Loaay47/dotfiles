@@ -2,13 +2,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "."
 
 -- improvements
-vim.keymap.set("n", "<leader>sl", ":DBUIToggle<CR>")
 
---Ex
+-- toggling cmds
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<M-a>", "ggVG")
+vim.keymap.set("n", "<leader>sl", ":DBUIToggle<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<M-a>", "ggVG")
 
 
 
@@ -56,7 +56,6 @@ vim.keymap.set('n', 'k', 'gk', { noremap = true })
 --split window
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
--- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 vim.keymap.set("n", "<leader>s;", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer navigation
