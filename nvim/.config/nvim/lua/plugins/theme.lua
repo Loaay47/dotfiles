@@ -11,11 +11,13 @@ return {
 			bold = true,
 			italic = {
 				strings = false,
-				comments = true,
+				emphasis = false,
+				comments = false,
 				operators = false,
 				folds = false,
 			},
 			contrast = "hard",
+			dim_inactive = false,
 			overrides = {
 				SignColumn = { bg = "none" },
 				LineNr = { bg = "none" },
