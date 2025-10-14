@@ -24,8 +24,8 @@ return {
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
       end,
     })
-    --[[ vim.keymap.set("n", "gj", "<cmd>diffget //2<CR>")
-    vim.keymap.set("n", "gk", "<cmd>diffget //3<CR>") ]]
+    vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>")
+    vim.keymap.set("n", "g;", "<cmd>diffget //2<CR>")
   end,
 }
 
