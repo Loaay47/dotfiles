@@ -42,8 +42,4 @@ vim.g.netrw_winsize = 25
 vim.cmd("set splitright")
 -- vim.cmd("set nosplitbelow")
 
---colorscheme
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
-
 vim.opt.colorcolumn = "80"
