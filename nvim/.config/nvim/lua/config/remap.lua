@@ -4,7 +4,7 @@ vim.g.maplocalleader = "."
 -- improvements
 
 -- toggling cmds
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>sl", ":DBUIToggle<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
@@ -59,8 +59,8 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>s;", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer navigation
-vim.keymap.set("n", "bj", ":bnext<CR>")
-vim.keymap.set("n", "bk", ":bprevious<CR>")
+vim.keymap.set("n", "bn", ":bnext<CR>")
+vim.keymap.set("n", "bp", ":bprevious<CR>")
 vim.keymap.set("n", "bl", ":e #<CR>")
 vim.keymap.set("n", "b;", ":bp | bd #<CR>")
 
