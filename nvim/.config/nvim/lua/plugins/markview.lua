@@ -8,13 +8,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    local presets = require("markview.presets")
     require("markview").setup({
       experimental = {
         check_rtp_message = false,
       },
       markdown = {
-        tables = presets.tables.rounded,
+        tables = require("markview.presets").tables.rounded,
       },
     })
   end,

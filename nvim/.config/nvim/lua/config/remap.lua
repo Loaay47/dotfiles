@@ -70,6 +70,12 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 
+-- control the size of splits
+vim.keymap.set("n", "<M-,>", "<C-w>5>")
+vim.keymap.set("n", "<M-.>", "<C-w>5<")
+vim.keymap.set("n", "<M-t>", "<C-w>+")
+vim.keymap.set("n", "<M-s>", "<C-w>-")
+
 
 -- Prevent 'x' from copying deleted characters to the clipboard
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
