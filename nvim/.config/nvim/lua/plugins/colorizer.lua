@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("colorizer").setup({
-      filetypes = { "css" },
+      filetypes = { "*" },
       user_default_options = {
         RGB = true,
         RRGGBB = true,

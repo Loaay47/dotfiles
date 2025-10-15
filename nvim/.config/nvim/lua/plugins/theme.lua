@@ -27,7 +27,6 @@ return {
 				NormalFloat = { bg = "none" },
 				FloatBorder = { bg = "none" },
 				Folded = { bg = "none" },
-				Pmenu = { bg = "#1d2021" },
 			},
 		})
 		vim.o.background = "dark"

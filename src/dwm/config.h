@@ -9,7 +9,7 @@ static const int splitstatus = 1;       /* 1 for split status items */
 static const char *splitdelim = ";"; /* Character used for separating status */
 static const char *fonts[] = {"JetBrainsMono Nerd Font Mono:size=10"};
 static const char dmenufont[] = "monospace:size=10";
-static const char col_gray1[] = "#222222";
+static const char col_gray1[] = "#1c1c1c";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#bbbbbb";
 static const char col_gray4[] = "#eeeeee";

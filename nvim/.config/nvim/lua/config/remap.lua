@@ -59,10 +59,10 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>s;", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer navigation
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true })
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { silent = true })
-vim.keymap.set("n", "<leader>bl", ":e #<CR>", { silent = true })
-vim.keymap.set("n", "<leader>b;", ":bp | bd #<CR>", { silent = true })
+vim.keymap.set("n", "bj", ":bnext<CR>")
+vim.keymap.set("n", "bk", ":bprevious<CR>")
+vim.keymap.set("n", "bl", ":e #<CR>")
+vim.keymap.set("n", "b;", ":bp | bd #<CR>")
 
  -- windows navigation
 vim.keymap.set("n", "<C-j>", "<C-w>j")

@@ -10,6 +10,9 @@ return {
 
   font_size = 12.0,
   color_scheme = "Bamboo",
+  colors = {
+    background = "#1c1c1c",
+  },
 
   -- arabic
   bidi_enabled = true,
