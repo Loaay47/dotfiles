@@ -13,6 +13,7 @@ return {
   colors = {
     background = "#1c1c1c",
   },
+  warn_about_missing_glyphs = false,
 
   -- arabic
   bidi_enabled = true,

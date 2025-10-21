@@ -14,3 +14,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.api.nvim_win_set_cursor(0, save_cursor)
   end,
 })
+
+vim.o.tabline = "%!v:lua.SimpleTabline()"
+function _G.SimpleTabline()
+  local s = ""
+  for i = 1, vim.fn.tabpagenr("$") do
+    local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
+    local name = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ":t")
+    if name == "" then
+      name = "[No Name]"
+    end
+    if i == vim.fn.tabpagenr() then
+      s = s .. "%#TabLineSel# " .. i .. ": " .. name .. " "
+    else
+      s = s .. "%#TabLine# " .. i .. ": " .. name .. " "
+    end
+  end
+  return s .. "%#TabLineFill#"
+end

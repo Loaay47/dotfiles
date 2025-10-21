@@ -1,2 +1,2 @@
-vim.keymap.set("n", "<localleader>r", ":!python3 %<CR>")
+vim.keymap.set("n", "<localleader>r", ":w | !python3 %<CR>")
 

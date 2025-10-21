@@ -28,6 +28,7 @@ return {
       marksman = true,
       jdtls = true,
       pyright = true,
+      ruff = { manual_install = true },
       bashls = true,
       gopls = {
         manual_install = true,
