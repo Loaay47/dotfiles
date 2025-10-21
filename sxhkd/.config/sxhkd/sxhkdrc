@@ -75,7 +75,7 @@ super + shift + N
 super + shift + S
         $HOME/dotfiles/scripts/screenshot.sh -s
 
-super + shift + F
+super + shift + bracketright
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 super + shift + H
