@@ -34,7 +34,7 @@ super + c
         rofi -show calc -modi calc -no-sort
 
 super + e
-        $TERMINAL -e ranger
+        $TERMINAL -e lf
 
 super + shift + e
         pcmanfm
@@ -96,7 +96,7 @@ super + shift + y
         $HOME/dotfiles/scripts/mpv_720.sh
 
 super + semicolon
-        $TERMINAL -e sh -c 'cd /media/fun/_loaay_data && ranger .'
+        $TERMINAL -e sh -c 'cd /media/fun/_loaay_data && lf .'
 
 super + f
         $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
