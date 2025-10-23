@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-volume=$(amixer get Master | awk -F'[][]' '/%/ {print $2; exit}' | tr -d '%')
-muted=$(amixer get Master | grep -oE '\[off\]' | head -n 1)
+info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+volume=$(echo "$info" | awk '{print int($2 * 100)}')
+muted=$(echo "$info" | grep -o '\[MUTED\]')
 
-if [ "$muted" = "[off]" ]; then
+if [ -n "$muted" ]; then
   echo "Muted"
 elif [ "$volume" -eq 0 ]; then
   echo "0%"
 else
-  echo "$volume%"
+  echo "${volume}%"
 fi
+
