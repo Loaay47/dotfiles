@@ -9,6 +9,13 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>sl", ":DBUIToggle<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<M-a>", "ggVG")
+vim.keymap.set("n", "<leader>tm", function()
+  local cmp = require("cmp")
+  local cfg = cmp.get_config().enabled
+  local state = not (type(cfg) == "function" and cfg() or cfg)
+  require("cmp").setup.buffer({ enabled = state })
+  print("Autocomplete " .. (state and "enabled" or "disabled"))
+end)
 
 
 

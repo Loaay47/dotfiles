@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 pidfile="$HOME/.cache/pomo_pid"
 

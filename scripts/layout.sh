@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 LAYFILE="/tmp/.current_layout"
 current=$(xkb-switch 2>/dev/null)

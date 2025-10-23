@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 url=$(xclip -o -selection clipboard)
 
 [ -z "$url" ] && notify-send -i /usr/share/icons/hicolor/64x64/apps/mpv.png "No URL found" && exit 1

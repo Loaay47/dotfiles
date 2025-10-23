@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 volume=$(amixer get Master | awk -F'[][]' '/%/ {print $2; exit}' | tr -d '%')
 muted=$(amixer get Master | grep -oE '\[off\]' | head -n 1)

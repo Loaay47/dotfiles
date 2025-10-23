@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 choice=$(echo -e "⏻  shutdown\n  reboot\n  exit" | rofi -dmenu -p "Choose action:")
 
