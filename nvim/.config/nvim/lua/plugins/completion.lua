@@ -42,6 +42,21 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
+
+
+
+      vim.keymap.set({ "i", "s"}, "<c-k>", function()
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        end
+      end, { silent = true }),
+
+      vim.keymap.set({ "i", "s"}, "<c-j>", function()
+        if luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        end
+      end, { silent = true }),
+
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
@@ -63,6 +78,11 @@ return {
         },
       },
     })
+
+    for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
+      loadfile(ft_path)()
+    end
+
     --setup vim-dadbod
     cmp.setup.filetype({ "sql" }, {
       sources = {
@@ -70,5 +90,8 @@ return {
         { name = "buffer" },
       },
     })
+
+
+
   end,
 }
