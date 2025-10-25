@@ -7,19 +7,19 @@ set period 1
 set hidden false
 set incsearch
 set incfilter
-set dircounts
-set wrapscroll
-set tabstop 4
-set scrolloff 5
-set shell "zsh"
-set ratios 1:1
+#set ratios 1:1
 set truncatechar "…"
 set timefmt "02/01/2006 15:04:05 "
 set infotimefmtnew '02/01 15:04'
 set infotimefmtold '02/01/06'
+set dircounts
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set shell "zsh"
 set cursorpreviewfmt "\033[7m"
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/previewer'
+set previewer '~/.config/lf/scope'
 
 set promptfmt "
 \033[38;2;202;31;31;48;2;40;47;62m
@@ -31,7 +31,6 @@ set promptfmt "
 set waitmsg "\033[1;31m⏎\033[m"
 set errorfmt "\033[1;31m"
 set numberfmt "\033[38;2;75;87;116m"
-
 
 #######################################################
 ################## CUSTOM COMMANDS ####################
@@ -62,9 +61,18 @@ cmd unarchive ${{
   esac
 }}
 
+# Trash bindings
 cmd trash ${{
-  for f in $fx; do
-    trash-put "$f"
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
   done
 }}
 
@@ -77,12 +85,18 @@ cmd open &{{
 
 # ─── Finder / Jump Commands ───────────────────────────
 cmd fzf_jump ${{
-  res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
-  if [ -n "$res" ]; then
-    [ -d "$res" ] && cmd="cd" || cmd="select"
-    lf -remote "send $id $cmd \"$res\""
-  fi
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
 }}
+#map <c-f> :fzf_jump
 
 cmd find ${{
   result="$(fd --hidden --exclude .git . | fzf --height 40% --reverse --no-multi)"
@@ -95,9 +109,16 @@ cmd find ${{
 #######################################################
 
 # ─── Core Actions ─────────────────────────────────────
+map c
+map d
+map m
+map y
 map <enter> open
 map . set hidden!
 map D trash
+map u $trash restore -r 0
+map dr $trash restore
+map de $trash empty --all
 map R reload
 map C clear
 
@@ -111,12 +132,15 @@ map dr $trash restore
 map de $trash empty --all
 
 # ─── File Copy/Paste ──────────────────────────────────
+map y
+map m
 map yy copy
 map dd cut
 map pp paste
+map au unarchive
 
 # ─── Clipboard Helpers ────────────────────────────────
-map yp &{{ echo -n "$PWD/$f" | xclip -selection clipboard }}
+map yp &{{ echo -n "$fx" | xclip -selection clipboard }}
 map yd &{{ echo -n "$PWD" | xclip -selection clipboard }}
 map yn &{{ echo -n "$(basename "$f")" | xclip -selection clipboard }}
 
@@ -125,7 +149,7 @@ map =x $chmod +x "$f"
 map -x $chmod -x "$f"
 
 # ─── Fuzzy Finder / Jump ──────────────────────────────
-map <c-f> :fzf_jump
+#map <c-f> :fzf_jump
 map f find
 
 # ─── Open in Editor ───────────────────────────────────
@@ -139,4 +163,15 @@ map gp cd ~/Pictures
 map gr cd ~/repos
 map gv cd ~/personal/courses/fun
 map gt cd ~/.local/share/Trash/files
+
+# ─── the F Shortcuts ──────────────────────────────
+map <c-f>
+map f1 $lf -remote "send $id select \"$(ffd -p --depth 1 +m)\""  # Fuzzy find 1 level deep
+map f2 $lf -remote "send $id select \"$(ffd -p --depth 2 +m)\""  # Fuzzy find 2 levels deep
+map f3 $lf -remote "send $id select \"$(ffd -p --depth 3 +m)\""  # Fuzzy find 3 levels deep
+map F  $lf -remote "send $id select \"$(ffd -p +m)\""
+map zf find
+map zF find-back
+
+
 

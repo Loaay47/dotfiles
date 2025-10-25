@@ -40,19 +40,18 @@ source ~/.config/zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 
-# ranger-cd
-function ranger-cd {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
+lfcd() {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
-    rm -f -- "$tempfile"
 }
 
-#ranger-cd will run by alt+r
-bindkey -s "^\er" "ranger-cd\n"
+bindkey -s '^o' '^ulfcd\n'
+
 bindkey '^n' autosuggest-accept
 bindkey -s '^f' "tmux-sessionizer\n"
 

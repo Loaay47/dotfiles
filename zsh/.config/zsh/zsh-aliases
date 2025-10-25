@@ -16,6 +16,7 @@ alias q='doas pacman -Ss'
 alias r='doas pacman -R'
 
 alias vi='nvim'
+alias lf='lfub.sh'
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cclip="xclip -selection clipboard"
 alias mpvs="mpv --no-video"

@@ -34,7 +34,7 @@ super + c
         rofi -show calc -modi calc -no-sort
 
 super + e
-        $TERMINAL -e lf
+        $TERMINAL -e $HOME/dotfiles/scripts/lfub.sh
 
 super + shift + e
         pcmanfm

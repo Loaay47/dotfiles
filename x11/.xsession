@@ -16,6 +16,8 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export CM_LAUNCHER=rofi
 export GTK_THEME=Adwaita-dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT6CT_PLATFORMTHEME=qt6ct
 
 
 # XDG base directories
@@ -38,7 +40,6 @@ xmodmap ~/.Xmodmap
 # Increase volume of Bluetooth mic to 150%
 btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')
 [ -n "$btmic" ] && pactl set-source-volume "$btmic" 135%
-
 
 #Changing Background
 feh --bg-fill ~/Pictures/hyprland_wallpapers/Dark_Nature.png
