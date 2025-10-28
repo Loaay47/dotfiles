@@ -41,6 +41,7 @@ function Run()
     end
 
   else
+    vim.cmd("silent write")
     vim.cmd("make run")
   end
 end

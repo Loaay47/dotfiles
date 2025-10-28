@@ -163,6 +163,7 @@ map gp cd ~/Pictures
 map gr cd ~/repos
 map gv cd ~/personal/courses/fun
 map gt cd ~/.local/share/Trash/files
+map g\; cd "/media/fun/_loaay_data/2. 2_level_sem2"
 
 # ─── the F Shortcuts ──────────────────────────────
 map <c-f>

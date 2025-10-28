@@ -210,7 +210,7 @@ cleanup_dead_panes() {
 sanity_check
 
 # if TS_SEARCH_PATHS is not set use default
-[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/ ~/projects ~/personal ~/dotfiles/src ~/dotfiles ~/tools ~/personal/courses )
+[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/ ~/projects ~/personal ~/dotfiles/src ~/dotfiles ~/tools ~/personal/courses '/media/fun/_loaay_data/2. 2_level_sem2')
 
 # Add any extra search paths to the TS_SEARCH_PATHS array
 # e.g : EXTRA_SEARCH_PATHS=("$HOME/extra1:4" "$HOME/extra2")
