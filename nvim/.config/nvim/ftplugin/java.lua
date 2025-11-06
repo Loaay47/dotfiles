@@ -25,12 +25,14 @@ function Run()
   if not (vim.fn.filereadable("Makefile") == 1 or vim.fn.filereadable("makefile") == 1) then
     local classname = vim.fn.expand("%:t:r")
     local classfile = classname .. ".class"
+    vim.cmd("silent write")
     if vim.fn.filereadable(classfile) == 1 then
       print(vim.fn.system("java " .. classname))
     else
       vim.api.nvim_err_writeln("Class not found: " .. classfile)
     end
   else
+    vim.cmd("silent write")
     vim.cmd("make run")
   end
 end

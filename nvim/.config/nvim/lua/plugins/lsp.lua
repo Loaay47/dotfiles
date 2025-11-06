@@ -25,7 +25,7 @@ return {
     local servers = {
       cmake = true,
       asm_lsp = true,
-      marksman = true,
+      -- marksman = true,
       jdtls = true,
       pyright = true,
       ruff = { manual_install = true },

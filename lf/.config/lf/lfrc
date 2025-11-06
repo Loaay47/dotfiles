@@ -61,6 +61,15 @@ cmd unarchive ${{
   esac
 }}
 
+cmd toPdf ${{
+  case "$f" in
+    *.ppt) libreoffice --headless --convert-to pdf "$f" ;;
+    *.pptx) libreoffice --headless --convert-to pdf "$f" ;;
+    *.jpeg|*jpg|*.png) magick "$f" "${f%.*}".pdf ;;
+    *) echo "Unsupported format" ;;
+  esac
+}}
+
 # Trash bindings
 cmd trash ${{
   files=$(printf "$fx" | tr '\n' ';')
@@ -138,6 +147,8 @@ map yy copy
 map dd cut
 map pp paste
 map au unarchive
+map ap toPdf
+
 
 # ─── Clipboard Helpers ────────────────────────────────
 map yp &{{ echo -n "$fx" | xclip -selection clipboard }}

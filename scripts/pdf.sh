@@ -21,7 +21,7 @@ END {
 
 file=$(echo "$menu" | rofi -dmenu -i -p "Open PDF:")
 
-if [ -n "$file" ]; then
+if [ -n "$file" ] && [ -f "$file" ]; then
     count=$(awk -v f="$file" '$2==f {print $1}' "$USAGE_FILE")
     count=$((count+1))
     grep -vF "$file" "$USAGE_FILE" > "$USAGE_FILE.tmp"
