@@ -4,7 +4,7 @@ super + Return
         $TERMINAL
 
 super + w
-        $HOME/dotfiles/scripts/zen.sh
+        $HOME/dotfiles/scripts/brave.sh
 
 super + b
         $HOME/dotfiles/scripts/brave.sh

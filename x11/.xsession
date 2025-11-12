@@ -29,7 +29,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Set env vars
 export EDITOR=nvim
 export VISUAL=nvim
-export BROWSER=zen-browser
+export BROWSER=brave
 export TERMINAL=wezterm
 export FILE_MANAGER=pcmanfm
 

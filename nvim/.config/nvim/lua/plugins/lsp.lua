@@ -159,7 +159,7 @@ return {
 				vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 
-				vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = 0 })
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
 				vim.keymap.set("n", "<leader>cn", vim.lsp.buf.code_action, { buffer = 0 })
 				vim.keymap.set("n", "<leader>wd", builtin.lsp_document_symbols, { buffer = 0 })
 				vim.keymap.set("n", "<leader>ww", function()

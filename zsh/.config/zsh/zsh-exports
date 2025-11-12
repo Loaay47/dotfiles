@@ -5,9 +5,9 @@ SAVEHIST=5000
 # Updating PATH
 export EDITOR=nvim
 export VISUAL=nvim
-export BROWSER=zen-browser
+export BROWSER=brave
 export TERMINAL=wezterm
-export FILE_MANAGER=pcmanfm
+export FILE_MANAGER=lf
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/dotfiles/scripts"
 export GTK_THEME=Materia-Dark
