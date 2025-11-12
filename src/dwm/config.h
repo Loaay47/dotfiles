@@ -36,6 +36,18 @@ static const Rule rules[] = {
 };
 
 
+static const char *defaulttagapps[] = {
+    "brave",       // tag 1
+    "/home/loaay/dotfiles/scripts/mpv_gui.sh",// tag 2
+    NULL, // tag 3
+    "/home/loaay/dotfiles/scripts/chatgpt.sh",       // tag 4
+    NULL,       // tag 5
+    NULL,       // tag 6
+    NULL,       // tag 7
+    "/home/loaay/dotfiles/scripts/telegram.sh",   // tag 8
+    "/home/loaay/dotfiles/scripts/excalidraw.sh",       // tag 9
+};
+
 
 /* layout(s) */
 static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
@@ -82,11 +94,12 @@ static const Key keys[] = {
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
     {MODKEY, XK_s, togglescratch, {.v = scratchpadcmd}},
+    {MODKEY, XK_semicolon, spawndefault, {0}},
     {MODKEY | ShiftMask, XK_j, pushdown, {0}},
     {MODKEY | ShiftMask, XK_k, pushup, {0}},
     {MODKEY | ShiftMask, XK_i, incnmaster, {.i = +1}},
     {MODKEY | ShiftMask, XK_d, incnmaster, {.i = -1}},
-    {MODKEY | ShiftMask, XK_space, togglefloating, {0} },
+    {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
