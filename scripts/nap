@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+TIME=$1
+TIME=$((TIME * 60))
+
+timer "$TIME" && suspend.sh
+

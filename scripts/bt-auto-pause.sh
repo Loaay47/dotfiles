@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash/
 EVENT_DEVICE="$1"
 ACTION="$2"
 

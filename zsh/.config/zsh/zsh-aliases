@@ -13,7 +13,7 @@ alias yay='paru'
 alias i='doas pacman -S --needed'
 alias u='doas pacman -Syu'
 alias q='doas pacman -Ss'
-alias r='doas pacman -R'
+alias r='doas pacman -Rns'
 
 alias vi='nvim'
 alias lf='lfub.sh'
@@ -28,5 +28,5 @@ alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.
 alias rain='mpv --no-video --volume=26 --cache=yes --cache-secs=30 --ytdl-format=bestaudio "https://youtube.com/watch?v=nDq6TstdEi8"'
 alias lst="yt-dlp --cookies-from-browser brave --flat-playlist --print '%(title)s___SEP___%(url)s' 'https://www.youtube.com/playlist?list=WL' | awk -F '___SEP___' '{printf \"%s\n%s\n\n\", \$1, \$2}' | cat - ~/vault/1\ -\ Rough\ notes/towatch.md > ~/vault/1\ -\ Rough\ notes/towatch.md.tmp && mv ~/vault/1\ -\ Rough\ notes/towatch.md.tmp ~/vault/1\ -\ Rough\ notes/towatch.md"
 alias ytd="yt-dlp -f \"bestvideo[height<=720]+bestaudio/best[height<=720]\" --embed-metadata --merge-output-format mp4 "
-alias ytd4="yt-dlp -f \"bestvideo[height<=480]+bestaudio/best[height<=480]\" --embed-metadata --merge-output-format mp4 "
+alias yt="yt-dlp -f \"bestvideo[height<=480]+bestaudio/best[height<=480]\" --embed-metadata --merge-output-format mp4 "
 

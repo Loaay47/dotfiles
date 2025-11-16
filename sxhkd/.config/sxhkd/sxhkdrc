@@ -49,7 +49,7 @@ super + shift + R
 # Controlling:
 
 super + shift + l
-        slock & doas systemctl suspend
+        $HOME/dotfiles/scripts/suspend.sh
 
 super + {equal, minus, BackSpace}
         $HOME/dotfiles/scripts/volume.sh {up, down, toggle}

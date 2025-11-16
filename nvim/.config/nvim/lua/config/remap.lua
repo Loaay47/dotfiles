@@ -55,6 +55,13 @@ vim.keymap.set("n", "<leader>o", function()
   vim.cmd("startinsert")
 end)
 
+-- copy the current path to clipboard
+vim.keymap.set("n", "<leader>yp", function ()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg("+", path)
+  print("File path copied: " .. path)
+end)
+
 
 -- g remap
 vim.keymap.set('n', 'j', 'gj', { noremap = true })

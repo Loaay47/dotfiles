@@ -1,7 +1,7 @@
-! Swap Caps Lock and Escape
-keycode 66 = Escape
-clear Lock
-keycode 9 = Escape
+! ! Swap Caps Lock and Escape
+! keycode 66 = Escape
+! clear Lock
+! keycode 9 = Escape
 
 ! Make Menu key act as Super_R
 keycode 135 = Super_R

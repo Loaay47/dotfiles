@@ -51,6 +51,7 @@ lfcd() {
 }
 
 bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^v' 'vi .\n'
 
 bindkey '^n' autosuggest-accept
 bindkey -s '^f' "tmux-sessionizer\n"
