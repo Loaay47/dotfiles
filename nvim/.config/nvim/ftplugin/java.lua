@@ -1,3 +1,23 @@
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
+local jdtls = require('jdtls')
+local root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
+
+local config = {
+  cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
+  root_dir = root_dir,
+  settings = {
+    java = {
+      project = {
+        sourcePaths = { 'src' }
+      }
+    }
+  }
+}
+
+jdtls.start_or_attach(config)
+
 local function find_makefile_dir()
   local dir = vim.fn.expand("%:p:h")
   while dir ~= "/" do

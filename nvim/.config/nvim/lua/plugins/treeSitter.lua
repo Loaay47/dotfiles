@@ -8,6 +8,7 @@ return {
         "vim", "vimdoc", "lua", "make", "bash", "markdown", "markdown_inline",  "yaml", "latex",
         "c", "cpp", "asm",  "html", "css", "javascript", "go", "python", "java", "sql", "gomod",
       },
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     })

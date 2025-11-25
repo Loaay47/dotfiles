@@ -34,7 +34,8 @@ export TERMINAL=wezterm
 export FILE_MANAGER=pcmanfm
 
 # keyboard conf
-setxkbmap -layout us,us,ara -variant ,dvorak,digits -option grp:alt_shift_toggle,caps:escape
+# setxkbmap -layout us,us,ara -variant ,dvorak,digits -option grp:alt_shift_toggle,caps:escape
+setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle,caps:escape
 xmodmap ~/.Xmodmap
 
 # Increase volume of Bluetooth mic to 150%

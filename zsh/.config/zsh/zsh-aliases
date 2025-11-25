@@ -25,6 +25,7 @@ alias ya='timer 600 && { notify-send -t 39000 -u critical "🕌 Iqamah" "Get up 
 
 alias dop='cd "/media/fun/_loaay_data"'
 alias phone='scrcpy --max-size=1024 --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc --video-bit-rate=4M'
+alias dad='scrcpy --max-size=1024 --video-codec=h264  --video-bit-rate=4M'
 alias rain='mpv --no-video --volume=26 --cache=yes --cache-secs=30 --ytdl-format=bestaudio "https://youtube.com/watch?v=nDq6TstdEi8"'
 alias lst="yt-dlp --cookies-from-browser brave --flat-playlist --print '%(title)s___SEP___%(url)s' 'https://www.youtube.com/playlist?list=WL' | awk -F '___SEP___' '{printf \"%s\n%s\n\n\", \$1, \$2}' | cat - ~/vault/1\ -\ Rough\ notes/towatch.md > ~/vault/1\ -\ Rough\ notes/towatch.md.tmp && mv ~/vault/1\ -\ Rough\ notes/towatch.md.tmp ~/vault/1\ -\ Rough\ notes/towatch.md"
 alias ytd="yt-dlp -f \"bestvideo[height<=720]+bestaudio/best[height<=720]\" --embed-metadata --merge-output-format mp4 "

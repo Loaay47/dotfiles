@@ -15,3 +15,4 @@ export GTK_ICON_THEME=Papirus-Dark
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANPAGER="nvim +Man!"
 export MANROFFOPT="-c"
+export _JAVA_AWT_WM_NONREPARENTING=1
