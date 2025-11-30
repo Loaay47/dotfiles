@@ -31,7 +31,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=brave
 export TERMINAL=wezterm
-export FILE_MANAGER=pcmanfm
+export FILE_MANAGER=lf
 
 # keyboard conf
 # setxkbmap -layout us,us,ara -variant ,dvorak,digits -option grp:alt_shift_toggle,caps:escape
@@ -49,6 +49,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
 ~/dotfiles/scripts/restore_brightness.sh &
+~/dotfiles/scripts/keyboard_watcher.sh &
 
 # Background services
 sxhkd &

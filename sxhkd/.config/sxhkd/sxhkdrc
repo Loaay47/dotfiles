@@ -81,8 +81,8 @@ super + shift + bracketright
 super + shift + H
         $HOME/dotfiles/scripts/opacity.sh
 
-super + 0
-        $HOME/dotfiles/scripts/keyboard.sh
+super + space
+        $HOME/dotfiles/scripts/keyboard_layout.sh
  ============================================
 # Tools:
 

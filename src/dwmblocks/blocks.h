@@ -6,6 +6,7 @@ static const Block blocks[] = {
     // {"Mem: ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",  30, 0},
     { "",    "/home/loaay/dotfiles/scripts/screencast_dwm.sh",   0,    10 },
     { "", "/home/loaay/dotfiles/scripts/pomodoro.sh", 10, 10 },
+    {"", "/home/loaay/dotfiles/scripts/keyboard_dwm.sh", 0, 30},
     {"🔊 ", "/home/loaay/dotfiles/scripts/volume_dwm.sh", 0, 30},
     {"", "date '+%a %d %b - %H:%M'", 5, 0},
     {"", "/home/loaay/dotfiles/scripts/battery.sh", 15, 10},
