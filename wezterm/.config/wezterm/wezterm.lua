@@ -52,13 +52,13 @@ return {
 
     },
     {
-      key = 'K',
+      key = 'T',
       mods = 'CTRL|SHIFT',
       action = config.ScrollByLine(-1),
 
     },
     {
-      key = 'J',
+      key = 'H',
       mods = 'CTRL|SHIFT',
       action = config.ScrollByLine(1),
 
@@ -75,13 +75,13 @@ return {
       action = config.ScrollByPage(0.5),
     },
     {
-      key = 'Y',
+      key = 'C',
       mods = 'CTRL|SHIFT',
       action = config.CopyTo 'ClipboardAndPrimarySelection',
     },
     {
-      key = 'P',
-      mods = 'CTRL|SHIFT',
+      key = 'v',
+      mods = 'CTRL',
       action = config.PasteFrom 'Clipboard',
     },
   }

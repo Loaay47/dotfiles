@@ -12,19 +12,6 @@ local function Compile()
   vim.cmd("cwindow")
 end
 
-local function OnError(_, data, _)
-  if data then
-    local msgs = vim.tbl_filter(function(msg)
-      return msg ~= ""
-        and not msg:match("^info:")
-        and not msg:match("bogus font ascent/descent")
-    end, data)
-    if #msgs > 0 then
-      vim.api.nvim_err_writeln(table.concat(msgs, "\n"))
-    end
-  end
-end
-
 function Run()
 
   if not (vim.fn.filereadable("Makefile") == 1 or vim.fn.filereadable("makefile") == 1) then

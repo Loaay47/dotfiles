@@ -66,6 +66,7 @@ cmd toPdf ${{
     *.ppt) libreoffice --headless --convert-to pdf "$f" ;;
     *.pptx) libreoffice --headless --convert-to pdf "$f" ;;
     *.docx) libreoffice --headless --convert-to pdf "$f" ;;
+    *.xlsx) libreoffice --headless --convert-to pdf "$f" ;;
     *.jpeg|*jpg|*.png) magick "$f" "${f%.*}".pdf ;;
     *) echo "Unsupported format" ;;
   esac
