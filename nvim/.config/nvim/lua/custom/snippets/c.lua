@@ -8,15 +8,20 @@ local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("c", {
-  s("main", fmt([[
+	s(
+		"main",
+		fmt(
+			[[
 #include <stdio.h>
 
 int main() {{
-  {}
-  return 0;
+    {}
+    return 0;
 }}
-]], {
-      i(0)
-    })),
+]],
+			{
+				i(0),
+			}
+		)
+	),
 })
-

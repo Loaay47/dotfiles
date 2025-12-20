@@ -10,26 +10,27 @@
 //                            __/ |
 //                           |___/
 #include <iostream>
-#include <vector>
-#include <set>
-#include <map>
 #include <algorithm>
+#include <map>
+#include <set>
+#include <vector>
 
 using namespace std;
 typedef long long ll;
 typedef long double ld;
 
 #define vi vector<ll>
-#define all(v) v.begin(),v.end()
+#define all(v) v.begin(), v.end()
 #define el "\n"
 
 void solve() {
 
 
+
 }
 
 int main() {
-  ios_base::sync_with_stdio(false);                                            \
+  ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
   ll tt = 1;
@@ -39,4 +40,3 @@ int main() {
   }
   return 0;
 }
-

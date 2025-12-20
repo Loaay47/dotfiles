@@ -89,10 +89,10 @@ super + space
 super + shift + W
         $TERMINAL -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
-super + y
-        $HOME/dotfiles/scripts/mpv_clip.sh
+# super + y
+#         $HOME/dotfiles/scripts/mpv_clip.sh
 
-super + f
+super + y
         $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
 
 super + shift + o

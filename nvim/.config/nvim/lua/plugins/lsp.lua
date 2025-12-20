@@ -8,7 +8,7 @@ return {
         ft = "lua",
         opts = {},
       }, ]]
-    "hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lsp",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -20,39 +20,37 @@ return {
 		"b0o/SchemaStore.nvim",
 	},
 	config = function()
-
-
-    local servers = {
-      cmake = true,
-      asm_lsp = true,
-      -- marksman = true,
-      jdtls = true,
-      pyright = true,
-      ruff = { manual_install = true },
-      bashls = true,
-      gopls = {
-        manual_install = true,
-        settings = {
-          gopls = {
-            usePlaceholders = true,
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-          },
-        },
-      },
-      lua_ls = {
-        cmd = { "lua-language-server" },
-        server_capabilities = {
-          semanticTokensProvider = vim.NIL,
-        },
-      },
+		local servers = {
+			cmake = true,
+			asm_lsp = true,
+			-- marksman = true,
+			jdtls = true,
+			pyright = true,
+			ruff = { manual_install = true },
+			bashls = true,
+			gopls = {
+				manual_install = true,
+				settings = {
+					gopls = {
+						usePlaceholders = true,
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+					},
+				},
+			},
+			lua_ls = {
+				cmd = { "lua-language-server" },
+				server_capabilities = {
+					semanticTokensProvider = vim.NIL,
+				},
+			},
 
 			ts_ls = {
 				root_dir = require("lspconfig").util.root_pattern("package.json"),
@@ -113,7 +111,7 @@ return {
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		-- Set global capabilities for all LSP servers
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		vim.lsp.config("*", {
 			capabilities = capabilities,
