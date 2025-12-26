@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-STEP="5%"
+STEP="3%"
 STATE_FILE="$HOME/.brightness_level"
 ID_FILE="/tmp/bright_notify_id"
 ICON="🌞"

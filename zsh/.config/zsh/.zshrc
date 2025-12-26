@@ -51,7 +51,7 @@ lfcd() {
 }
 
 bindkey -s '^o' '^ulfcd\n'
-bindkey -s '^t' 'vi .\n'
+bindkey -s '^t' 'nvim .\n'
 
 bindkey '^n' autosuggest-accept
 bindkey -s '^f' "tmux-sessionizer\n"
@@ -63,3 +63,6 @@ zstyle ':completion:*' menu select
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# bun completions
+[ -s "/home/loaay/.bun/_bun" ] && source "/home/loaay/.bun/_bun"

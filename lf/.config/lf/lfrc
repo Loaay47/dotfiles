@@ -65,7 +65,9 @@ cmd toPdf ${{
   case "$f" in
     *.ppt) libreoffice --headless --convert-to pdf "$f" ;;
     *.pptx) libreoffice --headless --convert-to pdf "$f" ;;
+    *.doc) libreoffice --headless --convert-to pdf "$f" ;;
     *.docx) libreoffice --headless --convert-to pdf "$f" ;;
+    *.xls) libreoffice --headless --convert-to pdf "$f" ;;
     *.xlsx) libreoffice --headless --convert-to pdf "$f" ;;
     *.jpeg|*jpg|*.png) magick "$f" "${f%.*}".pdf ;;
     *) echo "Unsupported format" ;;

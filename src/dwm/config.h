@@ -1,10 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 1; /* border pixel of windows */
+static const unsigned int borderpx = 2; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
-static const int topbar = 1;            /* 0 means bottom bar */
+static const int topbar = 0;            /* 0 means bottom bar */
 static const int splitstatus = 1;       /* 1 for split status items */
 static const char *splitdelim = ";"; /* Character used for separating status */
 static const char *fonts[] = {"JetBrainsMono Nerd Font Mono:size=10"};
@@ -59,9 +59,9 @@ static const int lockfullscreen =
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
+    {"[M]", monocle},
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
-    {"[M]", monocle},
 };
 
 /* key definitions */
@@ -105,9 +105,9 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_apostrophe, killclient, {0}},
-    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}},
-    {MODKEY | ShiftMask, XK_f, setlayout, {.v = &layouts[1]}},
-    {MODKEY | ShiftMask, XK_m, setlayout, {.v = &layouts[2]}},
+    {MODKEY | ShiftMask, XK_m, setlayout, {.v = &layouts[0]}},
+    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}},
+    {MODKEY | ShiftMask, XK_f, setlayout, {.v = &layouts[2]}},
     {MODKEY, XK_comma, focusmon, {.i = -1}},
     {MODKEY, XK_period, focusmon, {.i = +1}},
     {MODKEY | ShiftMask, XK_comma, tagmon, {.i = -1}},

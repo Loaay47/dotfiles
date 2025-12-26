@@ -52,6 +52,7 @@ function Run()
 	if mk_dir then
 		local prev = vim.fn.getcwd()
 		vim.cmd("cd " .. mk_dir)
+		print("")
 		vim.cmd("make run")
 		vim.cmd("cd " .. prev)
 		return
@@ -62,6 +63,7 @@ function Run()
 	local classfile = classname .. ".class"
 
 	if vim.fn.filereadable(classfile) == 1 then
+		print("")
 		print(vim.fn.system("java " .. classname))
 	else
 		vim.api.nvim_err_writeln("Class not found: " .. classfile)

@@ -25,3 +25,10 @@ function zle-line-init {
 zle -N zle-line-init
 
 preexec() { echo -ne '\e[1 q'; }  # block cursor before each command
+zle -N yank-to-clipboard
+yank-to-clipboard() {
+  zle vi-yank
+  print -rn -- "$CUTBUFFER" | xclip -selection clipboard
+}
+
+bindkey -M vicmd 'y' yank-to-clipboard

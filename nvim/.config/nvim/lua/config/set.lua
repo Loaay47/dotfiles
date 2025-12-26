@@ -23,7 +23,7 @@ vim.opt.undofile = true
 
 -- set search
 vim.opt.inccommand = "split"
-vim.opt.hlsearch = false
+-- vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

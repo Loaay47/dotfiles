@@ -32,3 +32,11 @@ function _G.SimpleTabline()
 	end
 	return s .. "%#TabLineFill#"
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp" },
+	callback = function()
+		vim.bo.commentstring = "// %s"
+	end,
+})
+

@@ -11,7 +11,11 @@ return {
 			local builtin = require("telescope.builtin")
 
 			telescope.setup({
-				defaults = {
+				defaults = require("telescope.themes").get_ivy({
+					layout_config = {
+                        height = 0.40,
+					},
+					preview = false,
 					vimgrep_arguments = {
 						"rg",
 						"--color=never",
@@ -22,7 +26,7 @@ return {
 						"--smart-case",
 						"-uu",
 					},
-				},
+				}),
 			})
 
 			telescope.load_extension("fzf")
@@ -32,7 +36,7 @@ return {
 			end, {})
 			vim.keymap.set("n", "<leader>gh", require("telescope.builtin").help_tags)
 			vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-			vim.keymap.set("n", "<leader>go", function()
+			vim.keymap.set("n", "<leader>ho", function()
 				require("telescope.builtin").buffers()
 			end)
 

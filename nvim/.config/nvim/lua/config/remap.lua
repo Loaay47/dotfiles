@@ -27,6 +27,7 @@ vim.keymap.set("n", "<leader>q", function()
 end)
 vim.keymap.set("n", "<M-n>", ":cnext<CR>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-p>", ":cprev<CR>zz", { noremap = true, silent = true })
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 
 -- Navigation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
