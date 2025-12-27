@@ -40,7 +40,7 @@ static const char *defaulttagapps[] = {
     "brave",       // tag 1
     "/home/loaay/dotfiles/scripts/mpv_gui.sh",// tag 2
     NULL, // tag 3
-    "/home/loaay/dotfiles/scripts/chatgpt.sh",       // tag 4
+    "/home/loaay/dotfiles/scripts/gemini.sh",       // tag 4
     NULL,       // tag 5
     NULL,       // tag 6
     NULL,       // tag 7

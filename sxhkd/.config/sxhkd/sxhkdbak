@@ -6,34 +6,40 @@ super + Return
 super + b
         $HOME/dotfiles/scripts/brave.sh
 
-super + e
+super + d
         mpv --player-operation-mode=pseudo-gui
 
-super + q
+super + x
         localsend
 
-super + r
+super + t
+        $HOME/dotfiles/scripts/telegram.sh
+
+super + o
         rofi -show drun
 
-super + p
+super + r
         $HOME/dotfiles/scripts/search.sh
 
-super + l
+super + p
         $HOME/dotfiles/scripts/pdf.sh
 
-super + c
+super + i
         rofi -show emoji -modi emoji
 
-super + j
+super + c
         rofi -show calc -modi calc -no-sort
 
-super + .
+super + e
         $TERMINAL -e $HOME/dotfiles/scripts/lfub.sh
 
-super + shift + .
+super + shift + e
         pcmanfm
 
-super + shift + p
+super + shift + v
+        $TERMINAL -e bash -c "$HOME/dotfiles/scripts/nvim.sh"
+
+super + shift + R
         xcolor | xclip -selection clipboard
 
 # ==========================================================
@@ -42,13 +48,13 @@ super + shift + p
 super + shift + l
         $HOME/dotfiles/scripts/suspend.sh
 
-super + {bracketright, bracketleft,, BackSpace}
+super + {equal, minus, BackSpace}
         $HOME/dotfiles/scripts/volume.sh {up, down, toggle}
 
-super + Up
+super + backslash
         $HOME/dotfiles/scripts/brightness.sh up
 
-super + Down
+super + bracketright
         $HOME/dotfiles/scripts/brightness.sh down
 
 super + m
@@ -57,19 +63,19 @@ super + m
 super + shift + BackSpace
         $HOME/dotfiles/scripts/exit.sh
 
-super + shift + G
+super + shift + U
         $HOME/dotfiles/scripts/bt.sh
 
 super + w
         $HOME/dotfiles/scripts/define_word.sh
 
-super + shift + O
+super + shift + S
         $HOME/dotfiles/scripts/screenshot.sh -s
 
 super + shift + bracketright
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
-super + shift + D
+super + shift + H
         $HOME/dotfiles/scripts/opacity.sh
 
 super + space
@@ -77,13 +83,16 @@ super + space
  ============================================
 # Tools:
 
-super + shift + comma
+super + shift + W
         $TERMINAL -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
 
-super + f
+# super + y
+#         $HOME/dotfiles/scripts/mpv_clip.sh
+
+super + y
         $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
 
-super + shift + R
+super + shift + o
         $HOME/dotfiles/scripts/screencast.sh
 
 super + v

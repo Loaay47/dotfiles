@@ -34,9 +34,9 @@ export TERMINAL=wezterm
 export FILE_MANAGER=lf
 
 # keyboard conf
-# setxkbmap -layout us,us,ara -variant ,dvorak,digits -option grp:alt_shift_toggle,caps:escape
-setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle,caps:escape
+setxkbmap -layout us,ara -variant dvorak,digits -option grp:alt_shift_toggle,caps:escape
 xmodmap ~/.Xmodmap
+echo "2" > /tmp/keyboard_layout.pid
 
 # Increase volume of Bluetooth mic to 150%
 btmic=$(pactl list short sources | awk '/bluez_input/ { print $2; exit }')

@@ -6,7 +6,7 @@ vim.g.maplocalleader = "."
 -- toggling cmds
 vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>sl", ":DBUIToggle<CR>")
+vim.keymap.set("n", "<leader>sa", ":DBUIToggle<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<M-a>", "ggVG")
 vim.keymap.set("n", "<leader>tm", function()
@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>q", function()
 		vim.cmd("copen")
 	end
 end)
-vim.keymap.set("n", "<M-n>", ":cnext<CR>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-g>", ":cnext<CR>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-p>", ":cprev<CR>zz", { noremap = true, silent = true })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 
@@ -105,6 +105,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- remove idiotic keys
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q:", "<Nop>")
+vim.keymap.set("ca", "Q", "q")
 
 -- prime prime
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -123,6 +124,7 @@ vim.keymap.set("v", "<leader>l", ":lua<CR>")
 
 --gcc for commenting a sigle line
 --gc for commenting a selection in visual mode
--- fm for formatting
---gd for going to defination
---<C-o> to return back
+-- nm for formatting
+--
+
+

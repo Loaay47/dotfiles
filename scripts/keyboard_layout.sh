@@ -3,7 +3,7 @@ PID_FILE="/tmp/keyboard_layout.pid"
 
 if [ ! -f "$PID_FILE" ]; then
     touch "$PID_FILE"
-    echo "1" > "$PID_FILE"
+    echo "2" > "$PID_FILE"
 else
     content=$(cat $PID_FILE)
     if [ "$content" = "1" ]; then

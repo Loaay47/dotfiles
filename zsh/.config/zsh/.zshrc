@@ -32,23 +32,14 @@ zsh_add_file "zsh-vim-mode"
 
 
 # Plugins
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.config/zsh/plugins/powerlevel11k/powerlevel10k.zsh-theme
+# source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Set up fzf key bindings and fuzzy completion
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 
-lfcd() {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
 
 bindkey -s '^o' '^ulfcd\n'
 bindkey -s '^t' 'nvim .\n'
@@ -57,12 +48,10 @@ bindkey '^n' autosuggest-accept
 bindkey -s '^f' "tmux-sessionizer\n"
 
 # Auto  completion
-autoload -Uz compinit
-compinit -C
-zstyle ':completion:*' menu select
+# autoload -Uz compinit
+# compinit -C
+# zstyle ':completion:*' menu select
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-# bun completions
-[ -s "/home/loaay/.bun/_bun" ] && source "/home/loaay/.bun/_bun"
