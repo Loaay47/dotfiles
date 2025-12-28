@@ -1,4 +1,13 @@
 # ===============================================================
+# 0. PERFORMANCE TRICK FOR ME ONLY
+# ===============================================================
+
+if [[ -z "$ZSH_WARM" && $- == *i* ]]; then
+    export ZSH_WARM=true
+    # 'exec' replaces the slow process with a fresh fast one
+    exec zsh
+fi
+# ===============================================================
 # 1. INSTANT PROMPT
 # ===============================================================
 # This must stay at the top
@@ -10,7 +19,6 @@ fi
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
 
 # ===============================================================
 # 2. SHELL OPTIONS (SETOPT)
@@ -281,11 +289,13 @@ bindkey '^n' autosuggest-accept
 # ===============================================================
 # 8. COMPLETION SYSTEM
 # ===============================================================
+COMPDUMP_FILE="/run/user/$UID/zcompdump-$HOST"
 autoload -Uz compinit
-compinit -C
-zstyle ':completion:*' menu select
-zstyle :compinstall filename '/home/loaay/.config/zsh/.zshrc'
-
+if [[ -n "$COMPDUMP_FILE"(#qN.m-1) ]]; then
+  compinit -C -d "$COMPDUMP_FILE"
+else
+  compinit -d "$COMPDUMP_FILE"
+fi
 
 # ===============================================================
 # 9. PLUGINS & THEME

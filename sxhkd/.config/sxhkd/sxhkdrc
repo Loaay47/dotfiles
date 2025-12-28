@@ -27,10 +27,10 @@ super + c
 super + j
         rofi -show calc -modi calc -no-sort
 
-super + .
+super + u
         $TERMINAL -e $HOME/dotfiles/scripts/lfub.sh
 
-super + shift + .
+super + shift + U
         pcmanfm
 
 super + shift + p

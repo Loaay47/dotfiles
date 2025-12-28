@@ -1,3 +1,4 @@
+#include <cstddef>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -35,19 +36,17 @@ static const Rule rules[] = {
     {"st", "scratchpad", NULL, 0, 1, 1, -1},
 };
 
-
 static const char *defaulttagapps[] = {
-    "brave",       // tag 1
-    "/home/loaay/dotfiles/scripts/mpv_gui.sh",// tag 2
-    NULL, // tag 3
-    "/home/loaay/dotfiles/scripts/gemini.sh",       // tag 4
-    NULL,       // tag 5
-    NULL,       // tag 6
-    NULL,       // tag 7
+    "brave",                                      // tag 1
+    "/home/loaay/dotfiles/scripts/mpv_gui.sh",    // tag 2
+    NULL,                                         // tag 3
+    "/home/loaay/dotfiles/scripts/gemini.sh",     // tag 4
+    NULL,                                         // tag 5
+    NULL,                                         // tag 6
+    NULL,                                         // tag 7
     "/home/loaay/dotfiles/scripts/telegram.sh",   // tag 8
-    "/home/loaay/dotfiles/scripts/excalidraw.sh",       // tag 9
+    "/home/loaay/dotfiles/scripts/excalidraw.sh", // tag 9
 };
-
 
 /* layout(s) */
 static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
@@ -67,16 +66,16 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY, TAG)                                                      \
-  {MODKEY, KEY, view, {.ui = 1 << TAG}},                                       \
-      {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},               \
-      {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                        \
-      {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
+    {MODKEY, KEY, view, {.ui = 1 << TAG}},                                     \
+        {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},             \
+        {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                      \
+        {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd)                                                             \
-  {                                                                            \
-    .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL }                       \
-  }
+    {                                                                          \
+        .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL }                   \
+    }
 
 /* commands */
 static char dmenumon[2] =

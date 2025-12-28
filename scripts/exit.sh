@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "⏻  shutdown\n  reboot\n  logout" | rofi -dmenu -p "Choose action:")
+choice=$(printf "⏻  shutdown\n  reboot\n  logout" | dmenu -i -l 3 -p "Choose action:")
 
 [ "$choice" = "⏻  shutdown" ] && doas poweroff
 [ "$choice" = "  reboot" ] && doas reboot
