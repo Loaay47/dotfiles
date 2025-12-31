@@ -38,6 +38,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+vim.keymap.set("i", "<M-l>", "<Right>")
 
 -- terminal navigation
 local term_buf = nil
@@ -68,7 +69,6 @@ vim.keymap.set("n", "k", "gk", { noremap = true })
 --split window
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>s;", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true })

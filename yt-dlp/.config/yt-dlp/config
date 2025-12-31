@@ -1,2 +1,2 @@
---js-runtime=deno
+--js-runtime=node
 --remote-components ejs:github

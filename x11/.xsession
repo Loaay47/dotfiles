@@ -64,3 +64,4 @@ picom -b &
 clipmenud &
 # go-pray daemon &
 exec dwm
+# exec i3

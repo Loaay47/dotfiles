@@ -3,6 +3,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
 vim.opt.guicursor = ""
+vim.opt.winborder = "rounded"
 
 
 --Tab setting & indentation

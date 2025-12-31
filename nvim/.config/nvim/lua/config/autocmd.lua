@@ -40,3 +40,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- to shut up errors in dwm config
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "config.h", "config.def.h" },
+  callback = function()
+    vim.diagnostic.enable(false, { bufnr = 0 })
+  end,
+})

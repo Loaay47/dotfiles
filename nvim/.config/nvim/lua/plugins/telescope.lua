@@ -36,7 +36,7 @@ return {
 			end, {})
 			vim.keymap.set("n", "<leader>gh", require("telescope.builtin").help_tags)
 			vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-			vim.keymap.set("n", "<leader>ho", function()
+			vim.keymap.set("n", "<leader>to", function()
 				require("telescope.builtin").buffers()
 			end)
 

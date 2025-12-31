@@ -66,13 +66,13 @@ super + w
 super + shift + O
         $HOME/dotfiles/scripts/screenshot.sh -s
 
-super + shift + bracketright
+super + shift + Z
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 super + shift + D
         $HOME/dotfiles/scripts/opacity.sh
 
-super + space
+super + alt + space
         $HOME/dotfiles/scripts/keyboard_layout.sh
  ============================================
 # Tools:
