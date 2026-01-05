@@ -19,7 +19,7 @@ END {
     for (f in usage) print usage[f], f
 }' "$USAGE_FILE" | sort -nr | cut -d' ' -f2-)
 
-file=$(echo "$menu" | rofi -dmenu -i -p "Open PDF:")
+file=$(echo "$menu" | dmenu -i -l 7 -p "Open PDF:")
 
 if [ -n "$file" ] && [ -f "$file" ]; then
     count=$(awk -v f="$file" '$2==f {print $1}' "$USAGE_FILE")

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-input="$(rofi -dmenu -p 'Search:')"
+input="$(echo "" | dmenu -p 'Search:')"
 
 [ -z "$input" ] && exit 0
 

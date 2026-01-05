@@ -1,3 +1,4 @@
+trap 'kill $(jobs -p)' EXIT
 # Sourcing xprofile
 if [ -f ~/.xprofile ]; then
     source ~/.xprofile

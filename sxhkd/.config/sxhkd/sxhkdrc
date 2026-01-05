@@ -13,7 +13,8 @@ super + q
         localsend
 
 super + r
-        rofi -show drun
+        # rofi -show drun
+        j4-dmenu-desktop --dmenu="dmenu -i -l 7 -p Open:"
 
 super + p
         $HOME/dotfiles/scripts/search.sh

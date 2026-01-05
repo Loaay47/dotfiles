@@ -4,5 +4,4 @@ choice=$(printf "⏻  shutdown\n  reboot\n  logout" | dmenu -i -l 3 -p "Ch
 
 [ "$choice" = "⏻  shutdown" ] && doas poweroff
 [ "$choice" = "  reboot" ] && doas reboot
-[ "$choice" = "  logout" ] && pkill -U $USER
-
+[ "$choice" = "  logout" ] && loginctl terminate-session self

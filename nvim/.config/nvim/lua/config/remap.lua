@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "."
 
 -- improvements
+vim.keymap.set("n", "<leader>e", [[:! ]], { silent = false })
+vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc>:t.<CR>", { silent = false })
 
 -- toggling cmds
 vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
@@ -9,25 +11,9 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>sa", ":DBUIToggle<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<M-a>", "ggVG")
-vim.keymap.set("n", "<leader>tm", function()
-	local cmp = require("cmp")
-	local cfg = cmp.get_config().enabled
-	local state = not (type(cfg) == "function" and cfg() or cfg)
-	require("cmp").setup.buffer({ enabled = state })
-	print("Autocomplete " .. (state and "enabled" or "disabled"))
-end)
-
---quickfix
-vim.keymap.set("n", "<leader>q", function()
-	if vim.fn.getqflist({ winid = 0 }).winid > 0 then
-		vim.cmd("cclose")
-	else
-		vim.cmd("copen")
-	end
-end)
 vim.keymap.set("n", "<M-g>", ":cnext<CR>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-p>", ":cprev<CR>zz", { noremap = true, silent = true })
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>")
 
 -- Navigation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -39,28 +25,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 vim.keymap.set("i", "<M-l>", "<Right>")
-
--- terminal navigation
-local term_buf = nil
-vim.keymap.set("n", "<leader>o", function()
-	if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-		local win = vim.fn.bufwinid(term_buf)
-		if win ~= -1 then
-			vim.api.nvim_win_close(win, true)
-			return
-		end
-	end
-	vim.cmd("botright 9split | terminal")
-	term_buf = vim.api.nvim_get_current_buf()
-	vim.cmd("startinsert")
-end)
-
--- copy the current path to clipboard
-vim.keymap.set("n", "<leader>yp", function()
-	local path = vim.fn.expand("%:p")
-	vim.fn.setreg("+", path)
-	print("File path copied: " .. path)
-end)
 
 -- g remap
 vim.keymap.set("n", "j", "gj", { noremap = true })
@@ -122,9 +86,46 @@ vim.keymap.set("n", "<localleader>et", "<cmd>CompetiTest edit_testcase<CR>")
 vim.keymap.set("n", "<leader>l", "<cmd> source %<CR>")
 vim.keymap.set("v", "<leader>l", ":lua<CR>")
 
+vim.keymap.set("n", "<leader>tm", function()
+	local cmp = require("cmp")
+	local cfg = cmp.get_config().enabled
+	local state = not (type(cfg) == "function" and cfg() or cfg)
+	require("cmp").setup.buffer({ enabled = state })
+	print("Autocomplete " .. (state and "enabled" or "disabled"))
+end)
+
+--quickfix
+vim.keymap.set("n", "<leader>q", function()
+	if vim.fn.getqflist({ winid = 0 }).winid > 0 then
+		vim.cmd("cclose")
+	else
+		vim.cmd("copen")
+	end
+end)
+
+-- terminal navigation
+local term_buf = nil
+vim.keymap.set("n", "<leader>o", function()
+	if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+		local win = vim.fn.bufwinid(term_buf)
+		if win ~= -1 then
+			vim.api.nvim_win_close(win, true)
+			return
+		end
+	end
+	vim.cmd("botright 9split | terminal")
+	term_buf = vim.api.nvim_get_current_buf()
+	vim.cmd("startinsert")
+end)
+
+-- copy the current path to clipboard
+vim.keymap.set("n", "<leader>yp", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("File path copied: " .. path)
+end)
+
 --gcc for commenting a sigle line
 --gc for commenting a selection in visual mode
 -- nm for formatting
 --
-
-
