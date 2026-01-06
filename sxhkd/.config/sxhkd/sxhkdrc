@@ -12,18 +12,20 @@ super + e
 super + q
         localsend
 
-super + r
-        # rofi -show drun
-        j4-dmenu-desktop --dmenu="dmenu -i -l 7 -p Open:"
-
 super + p
+        bash $HOME/dotfiles/scripts/app_run.sh
+
+super + r
         $HOME/dotfiles/scripts/search.sh
+
+super + m
+        $HOME/dotfiles/scripts/vid_fun.sh
 
 super + l
         $HOME/dotfiles/scripts/pdf.sh
 
 super + c
-        rofi -show emoji -modi emoji
+        $HOME/dotfiles/scripts/emoji_picker.sh
 
 super + j
         rofi -show calc -modi calc -no-sort
@@ -34,13 +36,13 @@ super + u
 super + shift + U
         pcmanfm
 
-super + shift + p
+super + shift + P
         xcolor | xclip -selection clipboard
 
 # ==========================================================
 # Controlling:
 
-super + shift + l
+super + shift + L
         $HOME/dotfiles/scripts/suspend.sh
 
 super + {bracketright, bracketleft,, BackSpace}
@@ -52,7 +54,7 @@ super + Up
 super + Down
         $HOME/dotfiles/scripts/brightness.sh down
 
-super + m
+super + shift + N
         $HOME/dotfiles/scripts/mount.sh
 
 super + shift + BackSpace
@@ -71,7 +73,8 @@ super + shift + Z
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 super + shift + D
-        $HOME/dotfiles/scripts/opacity.sh
+        $HOME/dotfiles/scripts/audio_switcher.sh
+        # $HOME/dotfiles/scripts/opacity.sh
 
 super + alt + space
         $HOME/dotfiles/scripts/keyboard_layout.sh
@@ -79,7 +82,7 @@ super + alt + space
 # Tools:
 
 super + shift + comma
-        $TERMINAL -e bash -c "$HOME/dotfiles/scripts/fzf.sh"
+        $HOME/dotfiles/scripts/kill_process.sh
 
 super + f
         $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
@@ -88,9 +91,9 @@ super + shift + R
         $HOME/dotfiles/scripts/screencast.sh
 
 super + v
-        clipmenu
+        CM_LAUNCHER=dmenu clipmenu -i -l 6 -p "Clipboard:"
 
-super + shift + a
+super + shift + A
         $HOME/dotfiles/scripts/arabic.sh
 
 super + a
