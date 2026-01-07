@@ -30,6 +30,13 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.conceallevel = 2
 
+-- vim fold
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable= true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"

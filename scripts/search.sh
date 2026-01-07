@@ -11,7 +11,7 @@ if echo "$input" | grep -q '^!'; then
 
 # direct url
 elif echo "$input" | grep -Eiq '^[a-zA-Z]+://|localhost|\.com|\.org|\.net|\.io|\.dev'; then
-    if ! echo "$input" | grep -iq '^[a-zA-Z]+://'; then
+    if ! echo "$input" | grep -Eiq '^[a-zA-Z]+://'; then
         input="https://$input"
     fi
 
