@@ -30,3 +30,6 @@ else
     echo "No drives connected" | dmenu -i -p "USB Drives: "
     exit 1
 fi
+
+
+

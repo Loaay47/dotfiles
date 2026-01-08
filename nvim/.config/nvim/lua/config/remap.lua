@@ -9,7 +9,6 @@ vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc>:t.<CR>", { silent = false })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>sa", ":DBUIToggle<CR>")
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<M-a>", "ggVG")
 vim.keymap.set("n", "<M-g>", ":cnext<CR>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-p>", ":cprev<CR>zz", { noremap = true, silent = true })
@@ -93,6 +92,21 @@ vim.keymap.set("n", "<leader>tm", function()
 	require("cmp").setup.buffer({ enabled = state })
 	print("Autocomplete " .. (state and "enabled" or "disabled"))
 end)
+
+-- toggle fugitive
+local function toggle_fugitive()
+    local winids = vim.api.nvim_list_wins()
+    for _, id in ipairs(winids) do
+        local bufnr = vim.api.nvim_win_get_buf(id)
+        if vim.api.nvim_buf_get_name(bufnr):match("fugitive://") then
+            vim.api.nvim_win_close(id, false)
+            return
+        end
+    end
+    vim.cmd("Git")
+end
+
+vim.keymap.set("n", "<leader>gs", toggle_fugitive)
 
 --quickfix
 vim.keymap.set("n", "<leader>q", function()
