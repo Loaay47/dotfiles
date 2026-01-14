@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-word=${1:-$(xclip -o -selection clipboard 2>/dev/null || wl-paste 2>/dev/null)}
 file="$HOME/notes/vocab.txt"
+mkdir -p "$(basename "$file")"
+
+word=$(dmenu -p "📖 Define:" < /dev/null) || exit 0
+
 
 # Check for empty word or special characters
 [[ -z "$word" || "$word" =~ [\/] ]] && notify-send -u critical -t 3000 "❌ Invalid input" && exit 0

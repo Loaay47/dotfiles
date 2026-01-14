@@ -82,6 +82,7 @@ alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cclip="xclip -selection clipboard"
 alias mpvs="mpv --no-video"
 alias net="vnstat -i wlp1s0 --oneline"
+alias nb="newsboat"
 alias ya='timer 600 && { notify-send -t 39000 -u critical "🕌 Iqamah" "Get up for prayer" & mpv --no-config --volume=80  ~/sounds/iqamah.mp3 }'
 
 alias dop='cd "/media/fun/_loaay_data"'
@@ -94,6 +95,7 @@ alias yt="yt-dlp -f \"bestvideo[height<=480]+bestaudio/best[height<=480]\" --emb
 
 alias wo="pomodoro work"
 alias br="pomodoro break"
+alias gl="git log --oneline --graph --decorate"
 
 
 

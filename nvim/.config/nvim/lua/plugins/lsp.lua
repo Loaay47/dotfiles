@@ -1,13 +1,13 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		--[[ {
-        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-        -- used forjcompletion, annotations and signatures of Neovim apis
-        "folke/lazygev.nvim",
-        ft = "lua",
-        opts = {},
-      }, ]]
+		 -- {
+   --      -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+   --      -- used forjcompletion, annotations and signatures of Neovim apis
+   --      "folke/lazygev.nvim",
+   --      ft = "lua",
+   --      opts = {},
+   --    },
 		"hrsh7th/cmp-nvim-lsp",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -52,31 +52,39 @@ return {
 				},
 			},
 
-			ts_ls = {
-				root_dir = require("lspconfig").util.root_pattern("package.json"),
-				single_file = false,
-				server_capabilities = {
-					documentFormattingProvider = false,
-				},
-			},
-			--[[
-        jsonls = {
-          server_capabilities = {
-            documentFormattingProvider = false,
-          },
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-       ]]
+			ts_ls = true,
+
+			-- ts_ls = {
+			-- 	root_dir = require("lspconfig").util.root_pattern(
+			--                  "package.json",
+			--                  "tsconfig.json",
+			--                  ".git"
+			--              ),
+			-- 	single_file = true,
+			-- 	server_capabilities = {
+			-- 		documentFormattingProvider = false,
+			-- 	},
+			-- },
+
+			-- jsonls = {
+			-- 	server_capabilities = {
+			-- 		documentFormattingProvider = false,
+			-- 	},
+			-- 	settings = {
+			-- 		json = {
+			-- 			schemas = require("schemastore").json.schemas(),
+			-- 			validate = { enable = true },
+			-- 		},
+			-- 	},
+			-- },
+
+			html = true,
 			cssls = {
 				server_capabilities = {
 					documentFormattingProvider = false,
 				},
 			},
+
 			clangd = {
 				init_options = { clangdFileStatus = true },
 				filetypes = { "c", "cpp" },

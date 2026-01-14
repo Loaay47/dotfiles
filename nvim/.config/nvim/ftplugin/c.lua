@@ -31,7 +31,7 @@ function Run()
 		vim.cmd("silent write")
 		print("")
 		print("----- program output -----")
-		vim.cmd("make run")
+		vim.cmd("!make run")
 	end
 end
 

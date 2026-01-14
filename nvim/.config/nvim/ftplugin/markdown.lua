@@ -2,7 +2,7 @@ vim.opt_local.wrap = true
 vim.opt_local.linebreak = true
 
 -- Markdown shortcuts
-vim.keymap.set("n", "<leader>to", function()
+vim.keymap.set("n", "<leader>ta", function()
 	local line_nr = vim.api.nvim_win_get_cursor(0)[1]
 	local line = vim.fn.getline(line_nr)
 	local new_line = nil
@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 	end,
 }) ]]
 
-vim.keymap.set("n", "<leader>wl", function()
+vim.keymap.set("n", "<leader>wa", function()
 	local line = vim.api.nvim_get_current_line()
 	local col = vim.fn.col(".")
 	local char = line:sub(col, col)

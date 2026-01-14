@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+duration=$1
+duration=$((duration*=60))
+
+timer $duration && notify-send "Time is up" && paplay ~/sounds/alarm.mp3

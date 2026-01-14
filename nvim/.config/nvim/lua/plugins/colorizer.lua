@@ -10,7 +10,7 @@ return {
 				names = true,
 				css = true,
 				css_fn = true,
-				mode = "background",
+				mode = "virtualtext",
 			},
 		})
 	end,

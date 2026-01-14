@@ -8,6 +8,9 @@ if [ -f "$PIDFILE" ]; then
     kill "$(cat "$PIDFILE")" && rm "$PIDFILE"
     pkill -RTMIN+10 dwmblocks
 else
+    input=$(printf "y\nn" | dmenu -l 3 -i -p "Record:")
+    [[ -z $input ]] && exit 0
+    [[ $input == "n" ]]  && exit 0
     ffmpeg \
         -f x11grab -framerate 15 -i :0.0 \
         -f pulse -i $MONITOR \

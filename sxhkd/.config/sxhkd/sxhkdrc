@@ -55,6 +55,12 @@ super + Down
         $HOME/dotfiles/scripts/brightness.sh down
 
 super + shift + N
+        $TERMINAL -e newsboat
+
+super + shift + X
+        $TERMINAL -e sh -c "mailsync & neomutt"
+
+super + shift + A
         $HOME/dotfiles/scripts/mount.sh
 
 super + shift + BackSpace
@@ -78,6 +84,9 @@ super + shift + D
 
 super + alt + space
         $HOME/dotfiles/scripts/keyboard_layout.sh
+
+super + Escape
+        pkill -USR1 -x sxhkd
  ============================================
 # Tools:
 
@@ -92,9 +101,6 @@ super + shift + R
 
 super + v
         CM_LAUNCHER=dmenu clipmenu -i -l 6 -p "Clipboard:"
-
-super + shift + A
-        $HOME/dotfiles/scripts/arabic.sh
 
 super + a
         boomer
