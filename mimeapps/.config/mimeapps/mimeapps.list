@@ -2,22 +2,47 @@
 # Video
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/avi=mpv.desktop
+video/mpeg=mpv.desktop
+video/quicktime=mpv.desktop
+
+# Audio
+audio/mpeg=mpv.desktop
+audio/flac=mpv.desktop
+audio/ogg=mpv.desktop
+audio/wav=mpv.desktop
+audio/aac=mpv.desktop
 
 # Images
-image/png=sxiv.desktop
-image/jpeg=sxiv.desktop
-image/webp=sxiv.desktop
+image/png=nsxiv.desktop
+image/jpeg=nsxiv.desktop
+image/jpg=nsxiv.desktop
+image/webp=nsxiv.desktop
+image/gif=nsxiv.desktop
+image/bmp=nsxiv.desktop
+image/tiff=nsxiv.desktop
+image/svg+xml=nsxiv.desktop
+image/heic=nsxiv.desktop
 
 # PDFs & Office
 application/pdf=zathura.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
 
+# Text / Source
+text/plain=nvim.desktop
+text/x-c=nvim.desktop
+text/x-shellscript=nvim.desktop
+text/x-python=nvim.desktop
+text/markdown=nvim.desktop
+text/html=brave-browser.desktop
+
 # Web
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 
-# Terminal (for some GUI apps that spawn one)
+# Terminal
 x-terminal-emulator=wezterm.desktop
 
 # File manager

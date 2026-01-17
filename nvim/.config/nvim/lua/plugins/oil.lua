@@ -37,6 +37,12 @@ return {
                     return name == ".."
                 end,
             },
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "OilDirChanged",
+                callback = function(args)
+                    vim.cmd.lcd(args.data.dir)
+                end,
+            }),
         })
     end,
 }

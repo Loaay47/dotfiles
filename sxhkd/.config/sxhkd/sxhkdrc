@@ -58,7 +58,7 @@ super + shift + N
         $TERMINAL -e newsboat
 
 super + shift + X
-        $TERMINAL -e sh -c "mailsync & neomutt"
+        $TERMINAL -e "neomutt"
 
 super + shift + A
         $HOME/dotfiles/scripts/mount.sh

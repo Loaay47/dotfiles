@@ -30,8 +30,8 @@ vim.keymap.set("n", "j", "gj", { noremap = true })
 vim.keymap.set("n", "k", "gk", { noremap = true })
 
 --split window
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>sv", "<C-w>v")
+vim.keymap.set("n", "<leader>sh", "<C-w>s")
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true })
@@ -84,6 +84,28 @@ vim.keymap.set("n", "<localleader>et", "<cmd>CompetiTest edit_testcase<CR>")
 -- run lua inline
 vim.keymap.set("n", "<leader>l", "<cmd> source %<CR>")
 vim.keymap.set("v", "<leader>l", ":lua<CR>")
+
+vim.keymap.set("n", "<leader>cd", function()
+  if vim.bo.filetype == "oil" then
+    vim.cmd("lcd " .. vim.fn.fnameescape(require("oil").get_current_dir()))
+  elseif vim.fn.expand("%:p:h") ~= "" then
+    vim.cmd("lcd " .. vim.fn.fnameescape(vim.fn.expand("%:p:h")))
+  end
+end)
+
+
+vim.keymap.set("n", "<leader>m", function()
+    local winids = vim.api.nvim_list_wins()
+    for _, id in ipairs(winids) do
+        local bufnr = vim.api.nvim_win_get_buf(id)
+        if vim.api.nvim_buf_get_name(bufnr):match("oil://") then
+            vim.api.nvim_win_close(id, false)
+            return
+        end
+    end
+    vim.cmd("sp")
+    vim.cmd("Oil")
+end)
 
 vim.keymap.set("n", "<leader>tm", function()
 	local cmp = require("cmp")

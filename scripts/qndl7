@@ -3,9 +3,9 @@
 # $1 is a url; $2 is a command
 [ -z "$1" ] && exit
 base="$(basename "$1")"
-notify-send "⏳ Queuing a 480p video..."
+notify-send "⏳ Queuing a 720p video..."
 cmd="$2"
-[ -z "$cmd" ] && cmd="yt-dlp -S res:480,ext:mp4:m4a --recode-video mp4 --embed-metadata --path=~/personal/courses/fun"
+[ -z "$cmd" ] && cmd="yt-dlp -S res:720,ext:mp4:m4a --recode-video mp4 --embed-metadata --path=~/personal/courses/fun"
 idnum="$(tsp $cmd "$1")"
 realname="$(echo "$base" | sed "s/?\(source\|dest\).*//;s/%20/ /g")"
 tsp -D "$idnum" mv "$base" "$realname"
