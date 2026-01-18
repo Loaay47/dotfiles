@@ -19,6 +19,7 @@ local function get_date_info()
 end
 
 ls.add_snippets("markdown", {
+
     s("d", {
         t({"---", "Week:", "  - "}),
         f(function() return get_date_info().week end),
@@ -44,4 +45,17 @@ ls.add_snippets("markdown", {
             return { "", "", "Tomorrow: [[" .. d.tomorrow_path .. "|" .. d.tomorrow_name .. "]]" }
         end),
     }),
+
+    s("t", {
+        f(function()
+            return os.date("%Y-%m-%d %H:%M")
+        end),
+        t({"", "Tags:", "", "# "}),
+        f(function()
+            return vim.fn.expand("%:t:r")
+        end),
+        t({"", "", ""}),
+        i(1),
+        t({"", "", "", "## References", "", ""}),
+    })
 })

@@ -10,11 +10,6 @@ fi
 # ===============================================================
 # 1. INSTANT PROMPT
 # ===============================================================
-# This must stay at the top
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Optimization flags for plugins
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
@@ -23,7 +18,7 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # ===============================================================
 # 2. SHELL OPTIONS (SETOPT)
 # ===============================================================
-setopt autocd extendedglob nomatch notify
+setopt autocd extendedglob nomatch notify PROMPT_SUBST
 setopt NO_NOMATCH NO_NOTIFY interactivecomments
 unsetopt beep
 
@@ -242,13 +237,6 @@ lfcd() {
 bindkey -v
 export KEYTIMEOUT=1
 
-# Use vim keys in tab complete menu:
-# bindkey -M menuselect '^h' vi-backward-char
-# bindkey -M menuselect '^k' vi-up-line-or-history
-# bindkey -M menuselect '^l' vi-forward-char
-# bindkey -M menuselect '^j' vi-down-line-or-history
-# bindkey -v '^?' backward-delete-char
-
 # Change cursor shape for different vi modes
 function zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
@@ -300,11 +288,31 @@ else
 fi
 
 # ===============================================================
-# 9. PLUGINS & THEME
+# 9. THEMES
 # ===============================================================
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+
+git_branch=""
+git_pwd=""
+
+update_git_branch() {
+  if [[ "$PWD" != "$git_pwd" ]]; then
+    git_pwd="$PWD"
+    local branch
+    branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [[ -n $branch ]]; then
+      git_branch=" ($branch)"
+    else
+      git_branch=""
+    fi
+  fi
+}
+precmd_functions+=(update_git_branch)
+
+PROMPT=$'%{\033[38;2;102;205;170m%}%1~%{\033[0m%}%{\033[38;2;127;161;182m%}$git_branch%{\033[0m%} %{\033[38;2;255;80;80m%}❯%{\033[0m%} '
+
+# ===============================================================
+# 10. PLUGINS & THEME
+# ===============================================================
 source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-# Load P10K Config (Final step)
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
