@@ -15,7 +15,7 @@ PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 # TS_EXTRA_SEARCH_PATHS=(~/ghq:3 ~/Git:3 ~/.config:2)
 # # if set this override the TS_MAX_DEPTH (1)
 # TS_MAX_DEPTH=2
-# This is not meant to override .tmux-sessionizer.  At first i thought this
+# This is not meant to override .ts.  At first i thought this
 # would be a good command, but i don't think its ackshually what i want.
 #
 # Instead, its a list of commands to run on windows who's index is way outside
@@ -150,12 +150,12 @@ hydrate() {
     if [[ ! -z $session_cmd ]]; then
         log "skipping hydrate for $1 -- using \"$session_cmd\" instead"
         return
-    elif [ -f "$2/.tmux-sessionizer" ]; then
-        log "sourcing(local) $2/.tmux-sessionizer"
-        tmux send-keys -t "$1" "source $2/.tmux-sessionizer" c-M
-    elif [ -f "$HOME/.tmux-sessionizer" ]; then
-        log "sourcing(global) $HOME/.tmux-sessionizer"
-        tmux send-keys -t "$1" "source $HOME/.tmux-sessionizer" c-M
+    elif [ -f "$2/.ts" ]; then
+        log "sourcing(local) $2/.ts"
+        tmux send-keys -t "$1" "source $2/.ts" c-M
+    elif [ -f "$HOME/.ts" ]; then
+        log "sourcing(global) $HOME/.ts"
+        tmux send-keys -t "$1" "source $HOME/.ts" c-M
     fi
 }
 

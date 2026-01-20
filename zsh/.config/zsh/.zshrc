@@ -35,14 +35,18 @@ HISTFILE=~/.cache/zsh/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
-export EDITOR=nvim
-export VISUAL=nvim
-export BROWSER=brave
-export TERMINAL=wezterm
-export FILE_MANAGER=lf
+export EDITOR="nvim"
+export VISUAL="nvim"
+export BROWSER="brave"
+export TERMINAL="wezterm"
+export VIDEO="mpv"
+export IMAGE="sxiv"
+export FILE_MANAGER="lf"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/dotfiles/scripts"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.npm-global/bin"
+export NPM_CONFIG_PREFIX="$HOME/.npm-global"
 export GTK_THEME=Materia-Dark
 export GTK_ICON_THEME=Papirus-Dark
 export MANPAGER="nvim +Man!"
@@ -270,8 +274,8 @@ bindkey -M vicmd 'y' yank-to-clipboard
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 bindkey -s '^o' '^ulfcd\n'
-bindkey -s '^t' 'nvim .\n'
-bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^t' 'vi .\n'
+bindkey -s '^f' "ts\n"
 bindkey '^n' autosuggest-accept
 
 

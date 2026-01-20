@@ -37,7 +37,8 @@ super + shift + U
         pcmanfm
 
 super + shift + P
-        xcolor | xclip -selection clipboard
+        $HOME/dotfiles/scripts/pass.sh
+        # xcolor | xclip -selection clipboard
 
 # ==========================================================
 # Controlling:
@@ -94,7 +95,7 @@ super + shift + comma
         $HOME/dotfiles/scripts/kill_process.sh
 
 super + f
-        $TERMINAL -e sh -c "$HOME/dotfiles/scripts/tmux-sessionizer"
+        $TERMINAL -e sh -c "$HOME/dotfiles/scripts/ts"
 
 super + shift + R
         $HOME/dotfiles/scripts/screencast.sh
