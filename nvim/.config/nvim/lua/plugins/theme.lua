@@ -10,6 +10,13 @@ return {
                 undercurl = true,
                 underline = true,
                 bold = true,
+                italic = {
+                    -- strings = false,
+                    -- emphasis = false,
+                    -- comments = false,
+                    operators = false,
+                    -- folds = false,
+                },
                 contrast = "hard",
                 dim_inactive = false,
                 overrides = {

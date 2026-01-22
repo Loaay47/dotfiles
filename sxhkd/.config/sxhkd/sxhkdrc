@@ -79,9 +79,8 @@ super + shift + O
 super + shift + Z
         maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
-super + shift + D
+super + shift + colon
         $HOME/dotfiles/scripts/audio_switcher.sh
-        # $HOME/dotfiles/scripts/opacity.sh
 
 super + alt + space
         $HOME/dotfiles/scripts/keyboard_layout.sh

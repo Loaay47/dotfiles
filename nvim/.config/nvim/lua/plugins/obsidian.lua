@@ -1,7 +1,7 @@
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*",
-	lazy = false,
+	lazy = true,
 
     keys = {
 		{ "<leader>on", ":ObsidianToday<CR>"},

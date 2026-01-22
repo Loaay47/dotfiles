@@ -1,4 +1,4 @@
 return {
-	"yuratomo/w3m.vim",
-	event = "VeryLazy",
+    "yuratomo/w3m.vim",
+    cmd = "W3m",
 }

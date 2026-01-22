@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+exec nvim -c "W3m $1"
+
+

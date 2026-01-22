@@ -5,17 +5,17 @@ set notification-warning-fg     "rgba(250,189,47,1)"   # bright:yellow
 set notification-bg             "rgba(40,40,40,1)"     # bg
 set notification-fg             "rgba(184,187,38,1)"   # bright:green
 
-set completion-bg               "rgba(80,73,69,1)"     # bg2
+set completion-bg               "rgba(40,40,40,1)"     # bg2
 set completion-fg               rgba(235,235,235,1)    # fg
 set completion-group-bg         "rgba(60,56,54,1)"     # bg1
 set completion-group-fg         "rgba(146,131,116,1)"  # gray
 set completion-highlight-bg     "rgba(131,165,152,1)"  # bright:blue
-set completion-highlight-fg     "rgba(80,73,69,1)"     # bg2
+set completion-highlight-fg     "rgba(40,40,40,1)"     # bg2
 
 set inputbar-bg                 "rgba(40,40,40,1)"     # bg
 set inputbar-fg                 rgba(235,235,235,1)    # fg
 
-set statusbar-bg                "rgba(80,73,69,1)"     # bg2
+set statusbar-bg                "rgba(40,40,40,1)"     # bg2
 set statusbar-fg                rgba(235,235,235,1)    # fg
 
 set highlight-color             "rgba(250,189,47,0.5)" # bright:yellow
