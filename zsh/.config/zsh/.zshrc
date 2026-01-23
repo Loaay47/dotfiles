@@ -147,13 +147,6 @@ yasser() {
     fi
 }
 
-c() {
-  local dir
-  dir=$(find . \
-    \( -path './node_modules' -o -path './.git' -o -path './.npm' -o -path './.local' -o -path './.cache' -o -path './.cargo' \) -prune -o \
-    -type d -print 2>/dev/null | fzf)
-  [ -n "$dir" ] && cd "$dir"
-}
 typeset -A pomo_options=(
   [work]=50
   [break]=10
@@ -219,6 +212,10 @@ cy() {
     sleep 5
   done
   pomodoro break
+}
+
+co() {
+    python3 ~/dotfiles/scripts/yt-comments.py "$1" | less -R
 }
 
 lfcd() {
